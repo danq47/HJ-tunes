@@ -68,7 +68,8 @@ INCLUDE1=$(HJ)
 INCLUDE2=$(shell dirname $(PWD))/include
 INCLUDE3=$(HJ)/MCFM_Include 
 INCLUDE4=$(HJ)/Topmass 
-FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4)
+INCLUDE5=$(HJ)/PYTHIA8
+FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4) -I$(INCLUDE5)
 
 LIBFILES=$(shell  for dir in $(HJ)/Madlib $(HJ)/MODEL $(HJ)/DHELAS ; do cd $$dir ; echo *.[fF] ' ' | sed 's/[fF] /o /g' ; cd .. ; done  )
 

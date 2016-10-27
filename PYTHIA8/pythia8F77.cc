@@ -85,6 +85,8 @@ extern "C" {
 
     //make pi0 stable
     pythia.readString("111:mayDecay = off");
+    //
+    pythia.readString("25:mayDecay = off");
 
     // ER: leave the following commented
     //pythia.readString("SpaceShower:pTmaxMatch = 0");
