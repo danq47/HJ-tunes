@@ -64,12 +64,11 @@ HJ=$(PWD)
 VPATH= ./:../:./Madlib/:./MODEL/:./DHELAS/:./Topmass/:$(OBJ)/
 
 
-INCLUDE1=$(HJ)
+INCLUDE1=$(PWD)
 INCLUDE2=$(shell dirname $(PWD))/include
-INCLUDE3=$(HJ)/MCFM_Include 
-INCLUDE4=$(HJ)/Topmass 
-INCLUDE5=$(HJ)/PYTHIA8
-FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4) -I$(INCLUDE5)
+INCLUDE3=$(PWD)/MCFM_Include 
+INCLUDE4=$(PWD)/Topmass 
+FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4)
 
 LIBFILES=$(shell  for dir in $(HJ)/Madlib $(HJ)/MODEL $(HJ)/DHELAS ; do cd $$dir ; echo *.[fF] ' ' | sed 's/[fF] /o /g' ; cd .. ; done  )
 
@@ -178,6 +177,12 @@ PWHGANAL=pwhg_bookhist-multi.o pwhg_analysis-pheno_2.o fastjetfortran.o \
          auxiliary.o get_hdamp.o
 endif
 
+PYTHIA8LOCATION=/unix/theory/quill/POWHEG-RES-INSTALL/pythia8185
+FJCXXFLAGS+=-I$(PYTHIA8LOCATION)/include
+FJCXXFLAGS+=-I$(PYTHIA8LOCATION)/include/Pythia8
+LIBPYTHIA8=-L$(PYTHIA8LOCATION)/lib/archive -lpythia8 -lstdc++
+
+
 %.o: %.f $(INCLUDE)
 	$(FF) -c -o $(OBJ)/$@ $<
 
@@ -262,6 +267,14 @@ PYTHIA=main-PYTHIA.o setup-PYTHIA-lhef.o pythia.o boostrot.o powheginput.o		\
 main-PYTHIA-lhef: $(PYTHIA)
 	$(FF) $(patsubst %,$(OBJ)/%,$(PYTHIA)) $(LIBSFASTJET)  $(STATIC) -o $@
 
+# target to read event file, shower events with PYTHIA8.1 + analysis
+PYTHIA8=main-PYTHIA8.o pythia8F77.o boostrot.o powheginput.o \
+	$(PWHGANAL) opencount.o pwhg_io_interface.o lhefread.o rwl_weightlists.o newunit.o pdfdummies.o \
+	random.o cernroutines.o bra_ket_subroutines.o utils.o\
+	$(FPEOBJ)
+
+main-PYTHIA8-lhef: $(PYTHIA8)
+	$(FF) $(patsubst %,$(OBJ)/%,$(PYTHIA8)  ) $(LIBSFASTJET) $(LIBPYTHIA8) $(STATIC) $(LIBS) -o $@
 
 DELTASUD=integral-deltasud.o pdfcalls.o cernroutines.o newunit.o \
          pwhg_bookhist-multi.o random.o  $(PDFPACK)
