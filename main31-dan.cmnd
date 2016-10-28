@@ -1,0 +1,30 @@
+! main31.cmnd.
+! This file contains commands to be read in for a Pythia8 run. 
+! Lines not beginning with a letter or digit are comments.
+! Names are case-insensitive  -  but spellings-sensitive!
+! The settings here are illustrative, not always physics-motivated.
+! You should carefully consider what changes need be done for the 
+! process you study currently, and consider some of the options
+! as reasonable measures of uncertainties in the matching process.
+
+! Number of events to list and number of errors to allow.
+Next:numberShowLHA = 1
+Next:numberShowInfo = 1 
+Next:numberShowProcess = 1
+Next:numberShowEvent = 1   
+Main:timesAllowErrors = 10
+! Further options (optional, for tryout)
+PartonLevel:MPI = off
+HadronLevel:All = off
+
+Tune:pp = 14
+SpaceShower:QEDshowerByQ = off
+SpaceShower:QEDshowerByL = off
+TimeShower:QEDshowerByQ = off
+TimeShower:QEDshowerByL = off
+BeamRemnants:primordialKT = off
+111:mayDecay = off
+25:mayDecay = off
+
+
+
