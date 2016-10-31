@@ -144,10 +144,10 @@ C--- Opens input file and counts number of events, setting MAXEV;
          vetoname=trim(adjustl(''))
       endif
       if(rnd_cwhichseed.ne.'none') then
-         filename=pwgprefix(1:lprefix)//'POWHEG+PYTHIA8_31-output-'
+         filename=pwgprefix(1:lprefix)//'POWHEG+PYTHIA8-output-'
      1        //rnd_cwhichseed//vetoname
       else
-         filename=pwgprefix(1:lprefix)//'POWHEG+PYTHIA8_31-output'//vetoname
+         filename=pwgprefix(1:lprefix)//'POWHEG+PYTHIA8-output'//vetoname
       endif
 
       call pwhgsetout

@@ -257,7 +257,8 @@ cp $basedir/powheg.input-save /tmp/kh10-`basename $basedir`/
 cp $basedir/pwhg_main         /tmp/kh10-`basename $basedir`/
 cp $basedir/lhef_analysis     /tmp/kh10-`basename $basedir`/
 cp $basedir/main-PYTHIA-lhef  /tmp/kh10-`basename $basedir`/
-cp $basedir/main-PYTHIA8-lhef /tmp/kh10-`basename $basedir`/
+cp $basedir/main-PYTHIA8_31-lhef /tmp/kh10-`basename $basedir`/
+cp $basedir/main31.cmnd /tmp/kh10-`basename $basedir`/
 cp $basedir/mergedata         /tmp/kh10-`basename $basedir`/
 cd /tmp/kh10-`basename $basedir`/
 #
@@ -504,7 +505,7 @@ fi
 ###########################################################################
 ###########################################################################
 #                                                                         #
-#                Analyse events with main-PYTHIA8-lhef                    #
+#                Analyse events with main-PYTHIA8_31-lhef                    #
 #                                                                         #
 ###########################################################################
 ###########################################################################
@@ -517,8 +518,8 @@ for i in `seq $startSeed $endSeed`
 do
     ch=`char $i`
     file=pwgevents-$ch.lhe
-    log=main-PYTHIA8-lhef-$i.log
-    echo $file | ./main-PYTHIA8-lhef > $log &
+    log=main-PYTHIA8_31-lhef-$i.log
+    echo $file | ./main-PYTHIA8_31-lhef > $log &
 done
 wait
 # ###########################################################################
@@ -548,7 +549,7 @@ do
 #     fi
 done
 # #
-mv main-PYTHIA8-lhef-*.log $basedir/log-files/
+mv main-PYTHIA8_31-lhef-*.log $basedir/log-files/
 (echo -n Finished Py8  BigLoop is $BigLoop ' ' ; date ) >> $basedir/Timings/Timings-10.txt
 #
 fi
@@ -567,7 +568,7 @@ rm -f /tmp/kh10-`basename $basedir`/powheg.input-save
 rm -f /tmp/kh10-`basename $basedir`/pwhg_main
 rm -f /tmp/kh10-`basename $basedir`/lhef_analysis
 rm -f /tmp/kh10-`basename $basedir`/main-PYTHIA-lhef
-rm -f /tmp/kh10-`basename $basedir`/main-PYTHIA8-lhef
+rm -f /tmp/kh10-`basename $basedir`/main-PYTHIA8_31-lhef
 cd /tmp
 rm -rf /tmp/kh10-`basename $basedir`
 cd $basedir
