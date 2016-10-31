@@ -276,6 +276,15 @@ PYTHIA8=main-PYTHIA8.o pythia8F77.o boostrot.o powheginput.o \
 main-PYTHIA8-lhef: $(PYTHIA8)
 	$(FF) $(patsubst %,$(OBJ)/%,$(PYTHIA8)  ) $(LIBSFASTJET) $(LIBPYTHIA8) $(STATIC) $(LIBS) -o $@
 
+# target to read event file, shower events with PYTHIA8 + analysis
+PYTHIA8_31=main-PYTHIA8_31.o pythia8F77_31.o boostrot.o powheginput.o           \
+	$(PWHGANAL) lhefread.o newunit.o pwhg_io_interface.o rwl_weightlists.o   \
+	pwhg_analysis_driver.o random.o cernroutines.o opencount.o bra_ket_subroutines.o        \
+	$(FPEOBJ)
+
+main-PYTHIA8_31-lhef: $(PYTHIA8_31)
+	$(FF) $(patsubst %,$(OBJ)/%,$(PYTHIA8_31)) $(LIBSFASTJET) $(LIBPYTHIA8) $(LIBS) $(STATIC) -o $@
+
 DELTASUD=integral-deltasud.o pdfcalls.o cernroutines.o newunit.o \
          pwhg_bookhist-multi.o random.o  $(PDFPACK)
 
