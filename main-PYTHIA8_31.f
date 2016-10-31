@@ -68,12 +68,12 @@ c               write(*,*) ' done: ',l
          if(iret.eq.1) then
             call pythia_to_hepevt(nmxhep,nhep,isthep,idhep,jmohep,
      1           jdahep,phep,vhep)
-            if(nevhep.lt.6) then
-               do j=1,nhep
-                  write(*,100)j,isthep(j),idhep(j),jmohep(1,j),
-     1           jmohep(2,j),jdahep(1,j),jdahep(2,j), (phep(k,j),k=1,5)
-               enddo
-            endif
+C             if(nevhep.lt.6) then
+C                do j=1,nhep
+C                   write(*,100)j,isthep(j),idhep(j),jmohep(1,j),
+C      1           jmohep(2,j),jdahep(1,j),jdahep(2,j), (phep(k,j),k=1,5)
+C                enddo
+C             endif
 
             call pyanal
 
