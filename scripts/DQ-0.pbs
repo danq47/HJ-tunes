@@ -20,7 +20,7 @@ endSeed=$((startSeed+nJobs-1))
 maxBigLoops=1
 do_st1=1
 do_st2=1
-do_NLOplots=0
+do_NLOplots=1
 do_st3=1
 do_st4=0
 do_rwgt=0
@@ -149,6 +149,7 @@ mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
 mv run-st2-*.log                       log-files/
 mv pwg-[0-9][0-9][0-9][0-9]-stat.dat   technical-outputs/
 mv pwg-[0-9][0-9][0-9][0-9]-*grid.top  technical-outputs/
+mv pwg-*NLO.top			       NLO-output
 #
 # ###########################################################################
 # # Merge any NLO analysis files that came out
