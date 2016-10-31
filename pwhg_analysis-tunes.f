@@ -180,16 +180,10 @@ c     Analysis subroutine
       
 c     Initialise everything to zero
       i_higgs=0 		! index of the higgs
-      i_j1=0			! index of the hardest jet
-      i_j2=0                    ! index of 2nd hardest jet
-      pj(:,1)=0
-      pj(:,2)=0
       do ixx=1,100
          s1(ixx) = ''
       enddo
       do ixx=1,4
-         pj(:,1)=0.0
-         pj(:,2)=0.0
          ph(:)  =0.0
       enddo
 
@@ -197,43 +191,15 @@ c     Find the Higgs - we will choose the final higgs
       do ihep=1,nhep
          id=abs(idhep(ihep))
          if(idhep(ihep).eq.25) i_higgs = ihep
-         if(whcprg.eq.'NLO') then
-            if(ihep.eq.4) then  ! The two jets are at 4 and 5, but
-               i_j1 = ihep      ! we don't know yet which one is harder
-            elseif(ihep.eq.5) then
-               i_j2 = ihep
-            endif
-         else
-            i_j1 = 0
-            i_j2 = 0
-         endif
       enddo
-      
-c     We still don't know (in the NLO case) which jet is
-c     harder, the 'Born' one or the POWHEG one
-      if(whcprg.eq.'NLO') then
-         if(i_j1.gt.0) pj(:,1)=phep(1:4,i_j1)
-         if(i_j2.gt.0) pj(:,2)=phep(1:4,i_j2)
-         
-         call getyetaptmass(pj(:,1),y,eta,pt,m)
-         ptj1=pt
-         call getyetaptmass(pj(:,2),y,eta,pt,m)
-         ptj2=pt
-         if(ptj2.gt.ptj1) then
-            pj(:,1)=phep(1:4,i_j2)
-            pj(:,2)=phep(1:4,i_j1)
-         endif
-      endif
-      
+
       ph=phep(1:4,i_higgs)
       
-c     Call Fastjet to build jets for LHEF and PYTHIA case      
-      if(whcprg.ne.'NLO') then
-         jetRadius= 0.4d0       
-         ptmin = 1d0
-         call buildjets(1,jetRadius,ptmin,mjets,ktj,
+c     Call Fastjet to build jets
+      jetRadius= 0.4d0       
+      ptmin = 1d0
+      call buildjets(1,jetRadius,ptmin,mjets,ktj,
      1        etaj,rapj,phij,ptrel,pj) 	
-      endif
       
 cccccccccccccccccccccc
 c                    c
@@ -248,10 +214,14 @@ c     Total plots
       call filld('sigmatot',0.5d0,dsig)
       call filld('H-pt',pt_higgs,dsig)
       call filld('H-y',y_higgs,dsig)
-      call filld('ptj1',ktj(1),dsig)
-      call filld('Yj1',rapj(1),dsig)
-      call filld('ptj2',ktj(2),dsig)
-      call filld('Yj2',rapj(2),dsig)
+      if(mjets.ge.1) then
+         call filld('ptj1',ktj(1),dsig)
+         call filld('Yj1',rapj(1),dsig)
+      endif
+      if(mjets.ge.2) then
+         call filld('ptj2',ktj(2),dsig)
+         call filld('Yj2',rapj(2),dsig)
+      endif
       
 c     Transverse momentum plots split into yHiggs bins
       do kxx=1,len_y

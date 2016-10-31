@@ -13,10 +13,12 @@ facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfa
 
 # Higgs properties
 hmass         125.09		! Higgs mass (GeV)
-hwidth        0.004221D0	! Higgs width
-bwcutoff      1000			! After how many higgs_width to cut off
-hdecaymode    -1			! Decay mode of the Higgs (only relevant for PYTHIA6)
+hwidth        0.0041644		! Higgs width
+bwcutoff      100			! After how many higgs_width to cut off
+hdecaymode    -1			! Decay mode of the Higgs (only relevant for PYTHIA6 so I think it is redundant here)
 bornsuppfact  10			! ???
+#higgsfixedwidth 1 			! (default 0), If 1 uses standard, fixed width Breit-Wigner
+                   			! formula, if 0 it uses the running width Breit-Wigner
 
 # Parameters to allow-disallow use of stored data
 use-old-grid   1  ! if 1 use old grid if file pwggrids.dat is present (# 1: regenerate)
@@ -38,11 +40,13 @@ parallelstage  3
 xgriditeration 1
 
 # MiNLO parameters
-minlo           1           ! default 0, set to 1 to use minlo
-minlo_jve       1			! use pT of the hardest jet in Sudakov (rather than pT_H)
-minlo_deltaR    1			! ??? (necessary if minlo_jve is on)
-factsc2min      2       	! at this value the factorization scale is frozen (neede with minlo)
-sudscalevar     1      		! (default 1) scale variation also in Sudakov form factors in minlo 
+minlo             1		! default 0, set to 1 to use minlo
+minlo_jve         1		! use pT of the hardest jet in Sudakov (rather than pT_H)
+minlo_deltaR      1		! ??? (necessary if minlo_jve is on)
+factsc2min        2       	! at this value the factorization scale is frozen (neede with minlo)
+sudscalevar       1     	! (default 1) scale variation also in Sudakov form factors in minlo 
+quarkmasseffects  0		! turn off quark mass effects (this, and bmass below off by default)
+bmass_in_minlo    0		! turn off bmass MiNLO effects (see docs/mass-effects-NNLOPS.pdf)
 
 # Optional parameters
 testplots       1			! 1 = do NLO plots, 0 = don't

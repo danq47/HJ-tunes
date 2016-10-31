@@ -297,7 +297,7 @@ $(OBJ):
 	if ! [ -d $(OBJ) ] ; then mkdir $(OBJ) ; fi
 
 clean:
-	rm -f pwhg_main lhef_analysis main-HERWIG-lhef main-PYTHIA-lhef ; \
+	rm -f pwhg_main lhef_analysis main-HERWIG-lhef main-PYTHIA-lhef main-PYTHIA8-lhef main-PYTHIA8_31-lhef; \
         cd $(OBJ) ; rm -f $(PWHG) $(HERWIG) $(PYTHIA) $(LHEF) $(NNLOPSREWEIGHTER) 
 
 
