@@ -17,8 +17,6 @@ hwidth        0.0041644		! Higgs width
 bwcutoff      100			! After how many higgs_width to cut off
 hdecaymode    -1			! Decay mode of the Higgs (only relevant for PYTHIA6 so I think it is redundant here)
 bornsuppfact  10			! ???
-#higgsfixedwidth 1 			! (default 0), If 1 uses standard, fixed width Breit-Wigner
-                   			! formula, if 0 it uses the running width Breit-Wigner
 
 # Parameters to allow-disallow use of stored data
 use-old-grid   1  ! if 1 use old grid if file pwggrids.dat is present (# 1: regenerate)
