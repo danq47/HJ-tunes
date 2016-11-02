@@ -777,7 +777,7 @@ extern "C" {
 			 int  (*jmohep)[2], int (*jdahep)[2],
 			 double (*phep)[5], double (*vhep)[4]) {
     nhep = pythia.event.size();
-    if(nhep>nmxhep) {cout << "too many particles!" ; exit(-1); }
+    if(nhep>nmxhep) {cout << "too many particles (" << nhep << "), max is " << nmxhep << "!"<<endl ;/* exit(-1);*/ }
     for (int i = 0; i < pythia.event.size(); ++i) {
       *(isthep+i) = pythia.event.statusHepMC(i);
       *(idhep+i) = pythia.event[i].id();
