@@ -527,7 +527,7 @@ wait
 echo ""
 for i in `seq 1 7`
 do
-    PYTHIA8FilesToCombine=`ls pwg-[0-9][0-9][0-9][0-9]*POWHEG+PYTHIA8-output-W$i.top`
+    PYTHIA8FilesToCombine=`ls pwgPOWHEG+PYTHIA8-output-[0-9][0-9][0-9][0-9]-W$i.top`
 #     if [ "$PYTHIA8FilesToCombine" = "" ] ; then
 #         echo "Finished main-PYTHIA-lhef and found no pwg-\*POWHEG+PYTHIA8-output-W$i.top files to merge."
 #     else

@@ -5,16 +5,16 @@
 #PBS -A quill
 #PBS -m abe
 #PBS -M daniel.quill.14@ucl.ac.uk
-#PBS -l nodes=6:ppn=4
+#PBS -l nodes=15:ppn=4
 
-###PBS -l procs=24
-#PBS -q medium
+###PBS -l procs=60
+#PBS -q long
 #
 ###########################################################################
 #
 nScripts=1
 scriptNumber=0
-nJobs=24
+nJobs=60
 startSeed=1
 endSeed=$((startSeed+nJobs-1))
 maxBigLoops=1
