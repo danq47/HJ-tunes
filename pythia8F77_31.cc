@@ -344,11 +344,10 @@ public:
     // find pT_1 for possible MPI vetoing
     int    count = 0;
     double pT1 = 0., pTsum = 0.;
-    //pythia.LHAeventList(); //ER:
     for (int i = e.size() - 1; i > 0; i--) {  //ER: i>5; it was i>0 , but it'd use w entry too...
       //      cout<<"all: "<<i<<" "<<e[i].id()<<" "<<e[i].px()<<endl;
       //      if (e[i].isFinal()) {
-      if ( (e[i].isFinal()) && (abs(e[i].id()) <= 5 || abs(e[i].id()) == 21) ) { //ER: this will work
+      if ( (e[i].isFinal()) && (abs(e[i].id()) <= 5 || abs(e[i].id()) == 21 || abs(e[i].id()) == 25 ) ) { //ER: this will work
         count++;
 	//	cout<<"final: "<<i<<" "<<e[i].id()<<" "<<e[i].px()<<endl;
 	//	cout<<"final: "<<i<<" "<<e[i].e()<<endl;
@@ -356,10 +355,11 @@ public:
         pTsum += e[i].pT();
       } else break;
     }
+
     // Extra check that we have the correct final state
     if (count != nFinal && count != nFinal + 1) {
-      cout << "Error: wrong number of final state particles in event" << endl;
-      exit(1);
+      cout << "Error: wrong number of final state particles in event:" << count << endl;
+      //exit(1);
     }
     // Flag if POWHEG radiation present and index
     bool isEmt = (count == nFinal) ? false : true;
