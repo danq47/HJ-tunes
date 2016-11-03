@@ -1,0 +1,43 @@
+
+Sourcing .bash_profile
+
+
+Appending local gcc locations to PATH.
+
+Setting CC, CXX, FC, F77.
+
+Appending build program locations to PATH.
+
+Setting PYTHON variable and PATH accordingly.
+
+Sourcing rivet initialisation script.
+
+Setting LHAPDFPATH.
+
+Setting PYTHIA8 data location.
+
+
+
+
+CC = /unix/theory/quill/POWHEG-RES-INSTALL/GCC/bin/gcc
+
+CXX = /unix/theory/quill/POWHEG-RES-INSTALL/GCC/bin/g++
+
+FC = /unix/theory/quill/POWHEG-RES-INSTALL/GCC/bin/gfortran
+
+PATH = /unix/theory/quill/POWHEG-RES-INSTALL/local/bin:/unix/theory/quill/POWHEG-RES-INSTALL/local/lib/../bin:/unix/theory/quill/POWHEG-RES-INSTALL/ANACONDA/bin:/unix/theory/quill/POWHEG-RES-INSTALL/DOXYGEN/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/GENGETOPT/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/GENGETOPT/share/:/unix/theory/quill/POWHEG-RES-INSTALL/AUTOMAKE/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/AUTOMAKE/share/:/unix/theory/quill/POWHEG-RES-INSTALL/AUTOCONF/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/AUTOCONF/share/:/unix/theory/quill/POWHEG-RES-INSTALL/M4/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/M4/share/:/unix/theory/quill/POWHEG-RES-INSTALL/GCC/bin/:/unix/theory/quill/POWHEG-RES-INSTALL/GCC/share/:/usr/lib64/qt-3.3/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/quill/bin
+
+LD_LIBRARY_PATH = /unix/theory/quill/POWHEG-RES-INSTALL/local/lib:/unix/theory/quill/POWHEG-RES-INSTALL/local/lib:/unix/theory/quill/POWHEG-RES-INSTALL/local/lib:/unix/theory/quill/POWHEG-RES-INSTALL/local/lib:/unix/theory/quill/POWHEG-RES-INSTALL/local/lib:/unix/theory/quill/POWHEG-RES-INSTALL/GCC/lib64/:/unix/theory/quill/POWHEG-RES-INSTALL/GCC/lib/:
+
+PYTHON = /unix/theory/quill/POWHEG-RES-INSTALL/ANACONDA/bin/python
+
+LHAPDFPATH = /unix/theory/quill/POWHEG-RES-INSTALL/local/
+
+PYTHIA8DATA = /unix/theory/quill/POWHEG-RES-INSTALL/pythia8185//xmldoc/
+
+
+Job running parameters:
+
+nJobs = 48
+Starting seed = 1
+Ending seed   = 48  

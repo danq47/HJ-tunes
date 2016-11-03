@@ -1,0 +1,8 @@
+ Starting st1 xg1  Wed Nov  2 20:58:01 GMT 2016
+ Ending st1 xg1  Wed Nov  2 21:23:44 GMT 2016
+ Starting st1 xg2  Wed Nov  2 21:23:50 GMT 2016
+ Ending st1 xg2  Wed Nov  2 21:50:52 GMT 2016
+ Starting st2  Wed Nov  2 21:51:07 GMT 2016
+Ending st2  Thu Nov  3 02:34:50 GMT 2016
+ Starting st3  Thu Nov  3 02:34:50 GMT 2016
+Ending st3  Thu Nov  3 03:32:59 GMT 2016

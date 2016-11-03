@@ -1,0 +1,1131 @@
+(d~ )d~   ==>  H    d~   d~      | mult=  2
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ d~ (d~ ) ==>  H    d~   d~      | mult=  2
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ d~  d    ==>  H   (d  ) d~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5   2  4   1  5
+ d~ (d  ) ==>  H    d~   d       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  5
+(d~ )d    ==>  H    d    d~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   4  5   2  4   1  5
+ d~  d    ==>  H   (u  ) u~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5
+ d~  d    ==>  H   (c  ) c~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5
+ d~  d    ==>  H   (s  ) s~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5
+ d~  d    ==>  H   (b  ) b~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5
+ d~  d    ==>  H   (g  ) g       | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(d~  d  ) ==>  H    g    g       | mult=  2
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(d~ )u~   ==>  H    u~   d~      | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ d~ (u~ ) ==>  H    d~   u~      | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )u    ==>  H    u    d~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ d~ (u  ) ==>  H    d~   u       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )c~   ==>  H    c~   d~      | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ d~ (c~ ) ==>  H    d~   c~      | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )c    ==>  H    c    d~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ d~ (c  ) ==>  H    d~   c       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )s~   ==>  H    s~   d~      | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ d~ (s~ ) ==>  H    d~   s~      | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )s    ==>  H    s    d~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ d~ (s  ) ==>  H    d~   s       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )b~   ==>  H    b~   d~      | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ d~ (b~ ) ==>  H    d~   b~      | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+(d~ )b    ==>  H    b    d~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ d~ (b  ) ==>  H    d~   b       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   1  4   2  5
+ d~  g    ==>  H   (d~ ) g       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(d~ )g    ==>  H    g    d~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ d~ (g  ) ==>  H    g    d~      | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(d~  g  ) ==>  H    d~   g       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ d   d~   ==>  H   (d  ) d~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  5
+(d  )d~   ==>  H    d~   d       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   4  5   2  4   1  5
+ d  (d~ ) ==>  H    d    d~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  5
+ d   d~   ==>  H   (u  ) u~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5
+ d   d~   ==>  H   (c  ) c~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5
+ d   d~   ==>  H   (s  ) s~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5
+ d   d~   ==>  H   (b  ) b~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5
+ d   d~   ==>  H   (g  ) g       | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(d   d~ ) ==>  H    g    g       | mult=  2
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(d  )d    ==>  H    d    d       | mult=  2
+ g   d    ==>  H    d       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ d  (d  ) ==>  H    d    d       | mult=  2
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+(d  )u~   ==>  H    u~   d       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ d  (u~ ) ==>  H    d    u~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )u    ==>  H    u    d       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ d  (u  ) ==>  H    d    u       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )c~   ==>  H    c~   d       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ d  (c~ ) ==>  H    d    c~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )c    ==>  H    c    d       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ d  (c  ) ==>  H    d    c       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )s~   ==>  H    s~   d       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ d  (s~ ) ==>  H    d    s~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )s    ==>  H    s    d       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ d  (s  ) ==>  H    d    s       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )b~   ==>  H    b~   d       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ d  (b~ ) ==>  H    d    b~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+(d  )b    ==>  H    b    d       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ d  (b  ) ==>  H    d    b       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   1  4   2  5
+ d   g    ==>  H   (d  ) g       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(d  )g    ==>  H    g    d       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ d  (g  ) ==>  H    g    d       | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(d   g  ) ==>  H    d    g       | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ u~ (d~ ) ==>  H    u~   d~      | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )d~   ==>  H    d~   u~      | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ u~ (d  ) ==>  H    u~   d       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )d    ==>  H    d    u~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+(u~ )u~   ==>  H    u~   u~      | mult=  2
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ u~ (u~ ) ==>  H    u~   u~      | mult=  2
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ u~  u    ==>  H   (d  ) d~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5
+ u~  u    ==>  H   (u  ) u~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5   2  4   1  5
+ u~ (u  ) ==>  H    u~   u       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  5
+(u~ )u    ==>  H    u    u~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   4  5   2  4   1  5
+ u~  u    ==>  H   (c  ) c~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5
+ u~  u    ==>  H   (s  ) s~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5
+ u~  u    ==>  H   (b  ) b~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5
+ u~  u    ==>  H   (g  ) g       | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(u~  u  ) ==>  H    g    g       | mult=  2
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(u~ )c~   ==>  H    c~   u~      | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ u~ (c~ ) ==>  H    u~   c~      | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )c    ==>  H    c    u~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ u~ (c  ) ==>  H    u~   c       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )s~   ==>  H    s~   u~      | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ u~ (s~ ) ==>  H    u~   s~      | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )s    ==>  H    s    u~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ u~ (s  ) ==>  H    u~   s       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )b~   ==>  H    b~   u~      | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ u~ (b~ ) ==>  H    u~   b~      | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+(u~ )b    ==>  H    b    u~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ u~ (b  ) ==>  H    u~   b       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   1  4   2  5
+ u~  g    ==>  H   (u~ ) g       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(u~ )g    ==>  H    g    u~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ u~ (g  ) ==>  H    g    u~      | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(u~  g  ) ==>  H    u~   g       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ u  (d~ ) ==>  H    u    d~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )d~   ==>  H    d~   u       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ u  (d  ) ==>  H    u    d       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )d    ==>  H    d    u       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ u   u~   ==>  H   (d  ) d~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5
+ u   u~   ==>  H   (u  ) u~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  5
+(u  )u~   ==>  H    u~   u       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   4  5   2  4   1  5
+ u  (u~ ) ==>  H    u    u~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  5
+ u   u~   ==>  H   (c  ) c~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5
+ u   u~   ==>  H   (s  ) s~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5
+ u   u~   ==>  H   (b  ) b~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5
+ u   u~   ==>  H   (g  ) g       | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(u   u~ ) ==>  H    g    g       | mult=  2
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(u  )u    ==>  H    u    u       | mult=  2
+ g   u    ==>  H    u       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ u  (u  ) ==>  H    u    u       | mult=  2
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+(u  )c~   ==>  H    c~   u       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ u  (c~ ) ==>  H    u    c~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )c    ==>  H    c    u       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ u  (c  ) ==>  H    u    c       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )s~   ==>  H    s~   u       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ u  (s~ ) ==>  H    u    s~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )s    ==>  H    s    u       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ u  (s  ) ==>  H    u    s       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )b~   ==>  H    b~   u       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ u  (b~ ) ==>  H    u    b~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+(u  )b    ==>  H    b    u       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ u  (b  ) ==>  H    u    b       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   1  4   2  5
+ u   g    ==>  H   (u  ) g       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(u  )g    ==>  H    g    u       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ u  (g  ) ==>  H    g    u       | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(u   g  ) ==>  H    u    g       | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ c~ (d~ ) ==>  H    c~   d~      | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )d~   ==>  H    d~   c~      | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ c~ (d  ) ==>  H    c~   d       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )d    ==>  H    d    c~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ c~ (u~ ) ==>  H    c~   u~      | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )u~   ==>  H    u~   c~      | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ c~ (u  ) ==>  H    c~   u       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )u    ==>  H    u    c~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+(c~ )c~   ==>  H    c~   c~      | mult=  2
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ c~ (c~ ) ==>  H    c~   c~      | mult=  2
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ c~  c    ==>  H   (d  ) d~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5
+ c~  c    ==>  H   (u  ) u~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5
+ c~  c    ==>  H   (c  ) c~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5   2  4   1  5
+ c~ (c  ) ==>  H    c~   c       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  5
+(c~ )c    ==>  H    c    c~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   4  5   2  4   1  5
+ c~  c    ==>  H   (s  ) s~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5
+ c~  c    ==>  H   (b  ) b~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5
+ c~  c    ==>  H   (g  ) g       | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(c~  c  ) ==>  H    g    g       | mult=  2
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(c~ )s~   ==>  H    s~   c~      | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ c~ (s~ ) ==>  H    c~   s~      | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )s    ==>  H    s    c~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ c~ (s  ) ==>  H    c~   s       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )b~   ==>  H    b~   c~      | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ c~ (b~ ) ==>  H    c~   b~      | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+(c~ )b    ==>  H    b    c~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ c~ (b  ) ==>  H    c~   b       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   1  4   2  5
+ c~  g    ==>  H   (c~ ) g       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(c~ )g    ==>  H    g    c~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ c~ (g  ) ==>  H    g    c~      | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(c~  g  ) ==>  H    c~   g       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ c  (d~ ) ==>  H    c    d~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )d~   ==>  H    d~   c       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ c  (d  ) ==>  H    c    d       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )d    ==>  H    d    c       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ c  (u~ ) ==>  H    c    u~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )u~   ==>  H    u~   c       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ c  (u  ) ==>  H    c    u       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )u    ==>  H    u    c       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ c   c~   ==>  H   (d  ) d~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5
+ c   c~   ==>  H   (u  ) u~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5
+ c   c~   ==>  H   (c  ) c~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  5
+(c  )c~   ==>  H    c~   c       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   4  5   2  4   1  5
+ c  (c~ ) ==>  H    c    c~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  5
+ c   c~   ==>  H   (s  ) s~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5
+ c   c~   ==>  H   (b  ) b~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5
+ c   c~   ==>  H   (g  ) g       | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(c   c~ ) ==>  H    g    g       | mult=  2
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(c  )c    ==>  H    c    c       | mult=  2
+ g   c    ==>  H    c       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ c  (c  ) ==>  H    c    c       | mult=  2
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+(c  )s~   ==>  H    s~   c       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ c  (s~ ) ==>  H    c    s~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )s    ==>  H    s    c       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ c  (s  ) ==>  H    c    s       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )b~   ==>  H    b~   c       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ c  (b~ ) ==>  H    c    b~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+(c  )b    ==>  H    b    c       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ c  (b  ) ==>  H    c    b       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   1  4   2  5
+ c   g    ==>  H   (c  ) g       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(c  )g    ==>  H    g    c       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ c  (g  ) ==>  H    g    c       | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(c   g  ) ==>  H    c    g       | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ s~ (d~ ) ==>  H    s~   d~      | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )d~   ==>  H    d~   s~      | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ s~ (d  ) ==>  H    s~   d       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )d    ==>  H    d    s~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ s~ (u~ ) ==>  H    s~   u~      | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )u~   ==>  H    u~   s~      | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ s~ (u  ) ==>  H    s~   u       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )u    ==>  H    u    s~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ s~ (c~ ) ==>  H    s~   c~      | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )c~   ==>  H    c~   s~      | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ s~ (c  ) ==>  H    s~   c       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )c    ==>  H    c    s~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+(s~ )s~   ==>  H    s~   s~      | mult=  2
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ s~ (s~ ) ==>  H    s~   s~      | mult=  2
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ s~  s    ==>  H   (d  ) d~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5
+ s~  s    ==>  H   (u  ) u~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5
+ s~  s    ==>  H   (c  ) c~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5
+ s~  s    ==>  H   (s  ) s~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5   2  4   1  5
+ s~ (s  ) ==>  H    s~   s       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  5
+(s~ )s    ==>  H    s    s~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   4  5   2  4   1  5
+ s~  s    ==>  H   (b  ) b~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5
+ s~  s    ==>  H   (g  ) g       | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(s~  s  ) ==>  H    g    g       | mult=  2
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(s~ )b~   ==>  H    b~   s~      | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ s~ (b~ ) ==>  H    s~   b~      | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+(s~ )b    ==>  H    b    s~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ s~ (b  ) ==>  H    s~   b       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   1  4   2  5
+ s~  g    ==>  H   (s~ ) g       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(s~ )g    ==>  H    g    s~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ s~ (g  ) ==>  H    g    s~      | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(s~  g  ) ==>  H    s~   g       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ s  (d~ ) ==>  H    s    d~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )d~   ==>  H    d~   s       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ s  (d  ) ==>  H    s    d       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )d    ==>  H    d    s       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ s  (u~ ) ==>  H    s    u~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )u~   ==>  H    u~   s       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ s  (u  ) ==>  H    s    u       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )u    ==>  H    u    s       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ s  (c~ ) ==>  H    s    c~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )c~   ==>  H    c~   s       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ s  (c  ) ==>  H    s    c       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )c    ==>  H    c    s       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ s   s~   ==>  H   (d  ) d~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5
+ s   s~   ==>  H   (u  ) u~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5
+ s   s~   ==>  H   (c  ) c~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5
+ s   s~   ==>  H   (s  ) s~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  5
+(s  )s~   ==>  H    s~   s       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   4  5   2  4   1  5
+ s  (s~ ) ==>  H    s    s~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  5
+ s   s~   ==>  H   (b  ) b~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5
+ s   s~   ==>  H   (g  ) g       | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(s   s~ ) ==>  H    g    g       | mult=  2
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(s  )s    ==>  H    s    s       | mult=  2
+ g   s    ==>  H    s       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ s  (s  ) ==>  H    s    s       | mult=  2
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+(s  )b~   ==>  H    b~   s       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   2  4   1  5
+ s  (b~ ) ==>  H    s    b~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+(s  )b    ==>  H    b    s       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   2  4   1  5
+ s  (b  ) ==>  H    s    b       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   1  4   2  5
+ s   g    ==>  H   (s  ) g       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(s  )g    ==>  H    g    s       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ s  (g  ) ==>  H    g    s       | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(s   g  ) ==>  H    s    g       | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ b~ (d~ ) ==>  H    b~   d~      | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )d~   ==>  H    d~   b~      | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ b~ (d  ) ==>  H    b~   d       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )d    ==>  H    d    b~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ b~ (u~ ) ==>  H    b~   u~      | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )u~   ==>  H    u~   b~      | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ b~ (u  ) ==>  H    b~   u       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )u    ==>  H    u    b~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ b~ (c~ ) ==>  H    b~   c~      | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )c~   ==>  H    c~   b~      | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ b~ (c  ) ==>  H    b~   c       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )c    ==>  H    c    b~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ b~ (s~ ) ==>  H    b~   s~      | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )s~   ==>  H    s~   b~      | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ b~ (s  ) ==>  H    b~   s       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  5
+(b~ )s    ==>  H    s    b~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+(b~ )b~   ==>  H    b~   b~      | mult=  2
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ b~ (b~ ) ==>  H    b~   b~      | mult=  2
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ b~  b    ==>  H   (d  ) d~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5
+ b~  b    ==>  H   (u  ) u~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5
+ b~  b    ==>  H   (c  ) c~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5
+ b~  b    ==>  H   (s  ) s~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5
+ b~  b    ==>  H   (b  ) b~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5   2  4   1  5
+ b~ (b  ) ==>  H    b~   b       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  5
+(b~ )b    ==>  H    b    b~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   4  5   2  4   1  5
+ b~  b    ==>  H   (g  ) g       | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(b~  b  ) ==>  H    g    g       | mult=  2
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+ b~  g    ==>  H   (b~ ) g       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(b~ )g    ==>  H    g    b~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ b~ (g  ) ==>  H    g    b~      | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(b~  g  ) ==>  H    b~   g       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ b  (d~ ) ==>  H    b    d~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )d~   ==>  H    d~   b       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   2  4   1  5
+ b  (d  ) ==>  H    b    d       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )d    ==>  H    d    b       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   2  4   1  5
+ b  (u~ ) ==>  H    b    u~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )u~   ==>  H    u~   b       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   2  4   1  5
+ b  (u  ) ==>  H    b    u       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )u    ==>  H    u    b       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   2  4   1  5
+ b  (c~ ) ==>  H    b    c~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )c~   ==>  H    c~   b       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   2  4   1  5
+ b  (c  ) ==>  H    b    c       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )c    ==>  H    c    b       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   2  4   1  5
+ b  (s~ ) ==>  H    b    s~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )s~   ==>  H    s~   b       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   2  4   1  5
+ b  (s  ) ==>  H    b    s       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  5
+(b  )s    ==>  H    s    b       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   2  4   1  5
+ b   b~   ==>  H   (d  ) d~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5
+ b   b~   ==>  H   (u  ) u~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5
+ b   b~   ==>  H   (c  ) c~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5
+ b   b~   ==>  H   (s  ) s~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5
+ b   b~   ==>  H   (b  ) b~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  5
+(b  )b~   ==>  H    b~   b       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   4  5   2  4   1  5
+ b  (b~ ) ==>  H    b    b~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  5
+ b   b~   ==>  H   (g  ) g       | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(b   b~ ) ==>  H    g    g       | mult=  2
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(b  )b    ==>  H    b    b       | mult=  2
+ g   b    ==>  H    b       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ b  (b  ) ==>  H    b    b       | mult=  2
+ b   g    ==>  H    b       | uborn, mult=  1
+   1  4   2  4   1  5   2  5
+ b   g    ==>  H   (b  ) g       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(b  )g    ==>  H    g    b       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ b  (g  ) ==>  H    g    b       | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(b   g  ) ==>  H    b    g       | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   d~   ==>  H   (d~ ) g       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )d~   ==>  H    g    d~      | mult=  1
+ d   d~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (d~ ) ==>  H    g    d~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   d~ ) ==>  H    d~   g       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   d    ==>  H   (d  ) g       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )d    ==>  H    g    d       | mult=  1
+ d~  d    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (d  ) ==>  H    g    d       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   d  ) ==>  H    d    g       | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   u~   ==>  H   (u~ ) g       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )u~   ==>  H    g    u~      | mult=  1
+ u   u~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (u~ ) ==>  H    g    u~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   u~ ) ==>  H    u~   g       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   u    ==>  H   (u  ) g       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )u    ==>  H    g    u       | mult=  1
+ u~  u    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (u  ) ==>  H    g    u       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   u  ) ==>  H    u    g       | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   c~   ==>  H   (c~ ) g       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )c~   ==>  H    g    c~      | mult=  1
+ c   c~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (c~ ) ==>  H    g    c~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   c~ ) ==>  H    c~   g       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   c    ==>  H   (c  ) g       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )c    ==>  H    g    c       | mult=  1
+ c~  c    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (c  ) ==>  H    g    c       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   c  ) ==>  H    c    g       | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   s~   ==>  H   (s~ ) g       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )s~   ==>  H    g    s~      | mult=  1
+ s   s~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (s~ ) ==>  H    g    s~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   s~ ) ==>  H    s~   g       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   s    ==>  H   (s  ) g       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )s    ==>  H    g    s       | mult=  1
+ s~  s    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (s  ) ==>  H    g    s       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   s  ) ==>  H    s    g       | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   b~   ==>  H   (b~ ) g       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )b~   ==>  H    g    b~      | mult=  1
+ b   b~   ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (b~ ) ==>  H    g    b~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   b~ ) ==>  H    b~   g       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   b    ==>  H   (b  ) g       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+(g  )b    ==>  H    g    b       | mult=  1
+ b~  b    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+ g  (b  ) ==>  H    g    b       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   1  5   2  5
+(g   b  ) ==>  H    b    g       | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   0  5
+ g   g    ==>  H   (d  ) d~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    d~   d       | mult=  1
+ d~  g    ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    d~   d       | mult=  1
+ g   d~   ==>  H    d~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    d    d~      | mult=  1
+ d   g    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    d    d~      | mult=  1
+ g   d    ==>  H    d       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g   g    ==>  H   (u  ) u~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    u~   u       | mult=  1
+ u~  g    ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    u~   u       | mult=  1
+ g   u~   ==>  H    u~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    u    u~      | mult=  1
+ u   g    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    u    u~      | mult=  1
+ g   u    ==>  H    u       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g   g    ==>  H   (c  ) c~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    c~   c       | mult=  1
+ c~  g    ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    c~   c       | mult=  1
+ g   c~   ==>  H    c~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    c    c~      | mult=  1
+ c   g    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    c    c~      | mult=  1
+ g   c    ==>  H    c       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g   g    ==>  H   (s  ) s~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    s~   s       | mult=  1
+ s~  g    ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    s~   s       | mult=  1
+ g   s~   ==>  H    s~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    s    s~      | mult=  1
+ s   g    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    s    s~      | mult=  1
+ g   s    ==>  H    s       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g   g    ==>  H   (b  ) b~      | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    b~   b       | mult=  1
+ b~  g    ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    b~   b       | mult=  1
+ g   b~   ==>  H    b~      | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+(g  )g    ==>  H    b    b~      | mult=  1
+ b   g    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g  (g  ) ==>  H    b    b~      | mult=  1
+ g   b    ==>  H    b       | uborn, mult=  1
+   4  5   1  4   2  4   1  5   2  5
+ g   g    ==>  H   (g  ) g       | mult=  1
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
+(g   g  ) ==>  H    g    g       | mult=  2
+ g   g    ==>  H    g       | uborn, mult=  1
+   4  5   0  4   0  5
