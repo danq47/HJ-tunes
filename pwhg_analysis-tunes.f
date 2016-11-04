@@ -31,14 +31,12 @@ c                                                c
 cccccccccccccccccccccccccccccccccccccccccccccccccc
 c 						 c
 c     Enter custom bin edges (from the lowest	 c
-c     to the highest. Enter the last bin edge 	 c
-c     twice so we don't get any funny business	 c
-c     from its original value of -1m.		 c
+c     to the highest.		                 c
 c     Enter bins in the form pt_bins1(x)	 c
 c 						 c
 cccccccccccccccccccccccccccccccccccccccccccccccccc
-
-		pt_bins1(1)=0d0
+      
+      pt_bins1(1)=0d0
       pt_bins1(2)=1d0
       pt_bins1(3)=2d0
       pt_bins1(4)=3d0
@@ -69,43 +67,43 @@ cccccccccccccccccccccccccccccccccccccccccccccccccc
       pt_bins1(29)=32d0
       pt_bins1(30)=34d0
       pt_bins1(31)=36d0
-		pt_bins1(32)=39d0
-		pt_bins1(33)=42d0
-		pt_bins1(34)=45d0
-		pt_bins1(35)=48d0
-		pt_bins1(36)=51d0
-		pt_bins1(37)=54d0
-		pt_bins1(38)=57d0
-		pt_bins1(39)=60d0
-		pt_bins1(40)=63d0
-		pt_bins1(41)=66d0
-		pt_bins1(42)=69d0
-		pt_bins1(43)=72d0
-		pt_bins1(44)=75d0
-		pt_bins1(45)=78d0
-		pt_bins1(46)=84d0
-		pt_bins1(47)=90d0
-		pt_bins1(48)=96d0
-		pt_bins1(49)=102d0
-		pt_bins1(50)=108d0
-		pt_bins1(51)=114d0
-		pt_bins1(52)=120d0
-		pt_bins1(53)=126d0
-		pt_bins1(54)=132d0
-		pt_bins1(55)=138d0
-		pt_bins1(56)=147d0
-		pt_bins1(57)=156d0
-		pt_bins1(58)=165d0
-		pt_bins1(59)=174d0
-		pt_bins1(60)=183d0
-		pt_bins1(61)=192d0
-		pt_bins1(62)=210d0
-		pt_bins1(63)=231d0
-		pt_bins1(64)=261d0
-		pt_bins1(65)=300d0
-		pt_bins1(66)=300d0
-
-
+      pt_bins1(32)=39d0
+      pt_bins1(33)=42d0
+      pt_bins1(34)=45d0
+      pt_bins1(35)=48d0
+      pt_bins1(36)=51d0
+      pt_bins1(37)=54d0
+      pt_bins1(38)=57d0
+      pt_bins1(39)=60d0
+      pt_bins1(40)=63d0
+      pt_bins1(41)=66d0
+      pt_bins1(42)=69d0
+      pt_bins1(43)=72d0
+      pt_bins1(44)=75d0
+      pt_bins1(45)=78d0
+      pt_bins1(46)=84d0
+      pt_bins1(47)=90d0
+      pt_bins1(48)=96d0
+      pt_bins1(49)=102d0
+      pt_bins1(50)=108d0
+      pt_bins1(51)=114d0
+      pt_bins1(52)=120d0
+      pt_bins1(53)=126d0
+      pt_bins1(54)=132d0
+      pt_bins1(55)=138d0
+      pt_bins1(56)=147d0
+      pt_bins1(57)=156d0
+      pt_bins1(58)=165d0
+      pt_bins1(59)=174d0
+      pt_bins1(60)=183d0
+      pt_bins1(61)=192d0
+      pt_bins1(62)=210d0
+      pt_bins1(63)=231d0
+      pt_bins1(64)=261d0
+      pt_bins1(65)=300d0
+      pt_bins1(66)=300d0
+      
+      
       y_bins1(1)=-5d0
       y_bins1(2)=-4d0
       y_bins1(3)=-3.2d0
@@ -145,12 +143,12 @@ cccccccccccccccccccccccccccccccccccccccccccccccccc
       
 c     total plots
       call bookupeqbins('sigmatot',1d0,-1d0,2d0)
-      call bookup('H-pt',len_pt - 1,pt_bins1)    ! nbins=len_x - 1
-      call bookup('H-y',len_y - 1,y_bins1)       ! because we entered
-      call bookup('ptj1',len_pt - 1,pt_bins1)    ! both the upper and
-      call bookup('Yj1',len_y - 1,y_bins1)       ! lower edges
-      call bookup('ptj2',len_pt - 1,pt_bins1)    ! both the upper and
-      call bookup('Yj2',len_y - 1,y_bins1)       ! lower edges
+      call bookup('H-pt',len_pt - 2,pt_bins1)    ! nbins=len_x - 2
+      call bookup('H-y',len_y - 2,y_bins1)       ! because we entered
+      call bookup('ptj1',len_pt - 2,pt_bins1)    ! both the upper and
+      call bookup('Yj1',len_y - 2,y_bins1)       ! lower edges
+      call bookup('ptj2',len_pt - 2,pt_bins1)    ! and put the final bin in twice
+      call bookup('Yj2',len_y - 2,y_bins1)       ! 
       
 c     pt-j1 and pt-H cut into y_H bins
       
@@ -168,18 +166,18 @@ c     pt-j1 and pt-H cut into y_H bins
          ls1=lenocc(s1(kxx))    ! trim down plot suffix
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
-            call bookup('H-pt-'//'--inf-yH-'//tmp,len_pt - 1,pt_bins1)
-            call bookup('ptj1-'//'--inf-yH-'//tmp,len_pt - 1,pt_bins1)
+            call bookup('H-pt-'//'--inf-yH-'//tmp,len_pt - 2,pt_bins1)
+            call bookup('ptj1-'//'--inf-yH-'//tmp,len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//'--inf-yH-'//tmp,len_pt - 1,pt_bins1)
             tmp2=tmp
          elseif(kxx.gt.1.and.kxx.lt.len_y) then ! This includes all the different cuts in the middle
-            call bookup('H-pt-'//s1(kxx)(1:ls1),len_pt - 1,pt_bins1)
-            call bookup('ptj1-'//s1(kxx)(1:ls1),len_pt - 1,pt_bins1)
+            call bookup('H-pt-'//s1(kxx)(1:ls1),len_pt - 2,pt_bins1)
+            call bookup('ptj1-'//s1(kxx)(1:ls1),len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//s1(kxx)(1:ls1),len_pt - 1,pt_bins1)
             tmp2=tmp
          elseif(kxx.eq.len_y) then ! and this cuts Y-higgs > highest bin edge
-            call bookup('H-pt-'//tmp2(1:t2)//'-yH-inf',len_pt - 1,pt_bins1)
-            call bookup('ptj1-'//tmp2(1:t2)//'-yH-inf',len_pt - 1,pt_bins1)
+            call bookup('H-pt-'//tmp2(1:t2)//'-yH-inf',len_pt - 2,pt_bins1)
+            call bookup('ptj1-'//tmp2(1:t2)//'-yH-inf',len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//tmp2(1:t2)//'-yH-inf',len_pt - 1,pt_bins1)
          endif
          
@@ -295,6 +293,8 @@ c     Total plots
          call filld('Yj2',rapj(2),dsig)
       endif
       
+      if(abs(y_higgs).gt.5) write(*,*) 'test!!'
+
 c     Transverse momentum plots split into yHiggs bins
       do kxx=1,len_y
          
