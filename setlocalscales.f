@@ -58,7 +58,7 @@ C     check if same phase space point
             return 
          else
             oknp(0:3,3:5) = kn_cmpreal(0:3,3:5) 
-            oimode=imode
+!            oimode=imode
             olreal = flg_minlo_real 
          endif
       else
@@ -69,7 +69,7 @@ C     check if same phase space point
             return 
          else
             oknp(0:3,3:4) = kn_cmpborn(0:3,3:4) 
-            oimode=imode
+!            oimode=imode
             olreal = flg_minlo_real 
          endif
       endif
@@ -557,5 +557,6 @@ c     For this reason, we have to divide the argument of the exponent by a facto
       dphi=min(dphi,2d0*pi-dphi)
       dr=sqrt(deta**2+dphi**2)
       end
+
 
 
