@@ -18,7 +18,7 @@ nJobs=4
 startSeed=$(( ( nJobs*(scriptNumber-1) ) + 1 ))
 startSeedOriginal=$startSeed
 endSeed=$((startSeed+nJobs-1))
-maxBigLoops=2
+maxBigLoops=1
 do_st1=1
 do_st2=1
 do_NLOplots=1
@@ -96,5 +96,5 @@ mv pwgcounters-st1-*.dat    technical-outputs/
 mv pwg-xg*-*-btlgrid.top    technical-outputs/
 mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
 mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
-mv pwggridinfo-btl-xg1-*.dat technical-outputs/
+#mv pwggridinfo-btl-xg1-*.dat technical-outputs/
 mv run-st1-xg*.log           log-files/

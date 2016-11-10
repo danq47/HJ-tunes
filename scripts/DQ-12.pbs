@@ -8,7 +8,7 @@
 #PBS -l nodes=1:ppn=4
 
 ###PBS -l procs=4
-#PBS -q medium
+#PBS -q long
 #
 ###########################################################################
 #
@@ -17,14 +17,14 @@ scriptNumber=12
 nJobs=4
 startSeed=$(( ( nJobs*(scriptNumber-1) ) + 1 ))
 endSeed=$((startSeed+nJobs-1))
-maxBigLoops=4
+maxBigLoops=50
 do_st1=0
 do_st2=0
 do_NLOplots=0
 do_st3=0
 do_st4=1
 do_rwgt=1
-do_lhef=1
+do_lhef=0
 do_py6=0
 do_py8=1
 #
