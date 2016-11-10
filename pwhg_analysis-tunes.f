@@ -9,12 +9,12 @@ c Initialise histograms
 C     integer maxbins1,maxbins2
 C     parameter (maxbins1=30,maxbins2=8)
       real*8           pt_bins1(100),y_bins1(100)
-      character * 20   s1(100)
-      character * 20   tmp,tmp2
+      character * 60   s1(100)
+      character * 60   tmp,tmp2
       common/bins/pt_bins1,y_bins1,len_pt,len_y
       integer          lenocc
       external         lenocc
-      
+      logical          negative ! check whether then bin edges (which will become strings for naming the plots) is negative
       call inihists
       
 c     Initialise everything correctly  
@@ -154,20 +154,24 @@ c     pt-j1 and pt-H cut into y_H bins
       
       do kxx=1,len_y
          
-         write(tmp,"(F6.2)") y_bins1(kxx) ! Write bin edges as strings
+         negative = .false.
+         if(y_bins1(kxx).lt.-1d-5) negative = .true.
+
+         write(tmp,"(F6.2)") abs(y_bins1(kxx)) ! Write bin edges as strings
 
          tmp=trim(adjustl(tmp))
+         if(negative) tmp = 'minus-'//tmp
          tmp2=trim(adjustl(tmp2))
          
          t1=lenocc(tmp)         ! trim the strings down
          t2=lenocc(tmp2)
          
-         s1(kxx) = tmp2(1:t1)//'-yH-'//tmp(1:t2) ! plot suffices
+         s1(kxx) = tmp2(1:t2)//'-yH-'//tmp(1:t1) ! plot suffices
          ls1=lenocc(s1(kxx))    ! trim down plot suffix
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
-            call bookup('H-pt-'//'--inf-yH-'//tmp,len_pt - 2,pt_bins1)
-            call bookup('ptj1-'//'--inf-yH-'//tmp,len_pt - 2,pt_bins1)
+            call bookup('H-pt-'//'minus-inf-yH-'//tmp,len_pt - 2,pt_bins1)
+            call bookup('ptj1-'//'minus-inf-yH-'//tmp,len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//'--inf-yH-'//tmp,len_pt - 1,pt_bins1)
             tmp2=tmp
          elseif(kxx.gt.1.and.kxx.lt.len_y) then ! This includes all the different cuts in the middle
@@ -213,9 +217,10 @@ c     Analysis subroutine
       real * 8     powheginput
       real * 8 	 pt_bins1(100),y_bins1(100)
       integer      len_pt,len_y,lenocc,t1,t2,ls1
-      character*20 s1(100),tmp,tmp2
+      character*60 s1(100),tmp,tmp2
       common/bins/ pt_bins1,y_bins1,len_pt,len_y
       external     powheginput,lenocc
+      logical      negative
       
       if (iniwgts) then
          write(*,*) '*********************'
@@ -271,11 +276,11 @@ c     Call Fastjet to build jets
       call buildjets(1,jetRadius,ptmin,mjets,ktj,
      1        etaj,rapj,phij,ptrel,pj) 	
       
-cccccccccccccccccccccc
-c                    c
-c     Make plots     c
-c                    c
-cccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c                                                        c
+c                        Make plots                      c
+c                                                        c
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
 c     Total plots
       call getyetaptmass(ph,y,eta,pt,m)
@@ -296,21 +301,25 @@ c     Total plots
 c     Transverse momentum plots split into yHiggs bins
       do kxx=1,len_y
          
-         write(tmp,"(F6.2)") y_bins1(kxx) ! Write bin edges as strings
+         negative = .false.
+         if(y_bins1(kxx).lt.-1d-5) negative = .true.
+
+         write(tmp,"(F6.2)") abs(y_bins1(kxx)) ! Write bin edges as strings
          
          tmp=trim(adjustl(tmp))
+         if(negative) tmp = 'minus-'//tmp
          tmp2=trim(adjustl(tmp2))
 
          t1=lenocc(tmp)         ! trim the strings down
          t2=lenocc(tmp2)
 
-         s1(kxx) = tmp2(1:t1)//'-yH-'//tmp(1:t2) ! plot suffices
+         s1(kxx) = tmp2(1:t2)//'-yH-'//tmp(1:t1) ! plot suffices
          ls1=lenocc(s1(kxx))    ! trim down plot suffix
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
             if(y_higgs.lt.y_bins1(kxx)) then
-               call filld('H-pt-'//'--inf-yH-'//tmp,pt_higgs,dsig)
-               call filld('ptj1-'//'--inf-yH-'//tmp,ktj(1),dsig)
+               call filld('H-pt-'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
+               call filld('ptj1-'//'minus-inf-yH-'//tmp,ktj(1),dsig)
 !     call filld('ptj2'//'--inf-yH-'//tmp,ktj(2),dsig)
             endif
             tmp2=tmp
