@@ -1,0 +1,100 @@
+###########################################################################
+#!/bin/bash
+###########################################################################
+#
+#PBS -A quill
+#PBS -m abe
+#PBS -M daniel.quill.14@ucl.ac.uk
+#PBS -l nodes=1:ppn=4
+
+###PBS -l procs=4
+#PBS -q short
+#
+###########################################################################
+#
+nScripts=25
+scriptNumber=10
+nJobs=4
+startSeed=$(( ( nJobs*(scriptNumber-1) ) + 1 ))
+startSeedOriginal=$startSeed
+endSeed=$((startSeed+nJobs-1))
+maxBigLoops=1
+do_st1=1
+do_st2=1
+do_NLOplots=1
+do_st3=1
+do_st4=0
+do_rwgt=0
+do_lhef=0
+do_py6=0
+do_py8=0
+#
+###########################################################################
+#
+echo -e "\nJob running parameters:\n"
+echo -e "nJobs = $nJobs"
+echo -e "Starting seed = $startSeed"
+echo -e "Ending seed   = $endSeed  "
+###########################################################################
+# Get the name of the directory we're submitting this script from.
+basedir=$PBS_O_WORKDIR
+# Tell the current worker node to go into it.
+cd $basedir
+#
+###########################################################################
+# Check we have executables and a powheg.input-save input file.
+if [ ! -e pwhg_main ] ; then
+    echo ; echo "Could not find $PWD/pwhg_main executable. Quitting." ; echo
+    exit
+fi
+if [ ! -e powheg.input-save ] ; then
+    echo ; echo "Could not find $PWD/powheg.input-save input file. Quitting." ; echo
+    exit
+fi
+#
+###########################################################################
+###########################################################################
+#                                                                         #
+#       					          do xgrids 2			                       #
+#                                                                         #
+###########################################################################
+###########################################################################
+
+if [ $scriptNumber -eq 1 ] ; then
+	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
+	(echo -n Starting st1 xg ' ' ; date ) >> Timings/Timings-initialisation.txt
+
+	cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 2/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
+fi
+
+# DQ - loop over NLO bits
+for NLOLoop in `seq 1 $maxBigLoops`
+do
+
+for i in `seq $startSeed $endSeed`
+do
+echo $i | ./pwhg_main > run-st1-xg2-$i.log 2>&1 &
+done
+wait
+
+startSeed=$((startSeed+(nJobs*nScripts)))
+endSeed=$((startSeed+nJobs-1))
+
+done # Finish the NLOLoop
+wait
+
+if [ $scriptNumber -eq $nScripts ] ; then
+
+(echo -n ' ' ) >> Timings/Timings-initialisation.txt
+(echo -n Ending   st1 xg2 ' ' ; date ) >> Timings/Timings-initialisation.txt
+
+fi
+
+###########################################################################
+# Tidy up
+mv pwgcounters-st1-*.dat    technical-outputs/
+mv pwg-xg*-*-btlgrid.top    technical-outputs/
+mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
+mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
+#mv pwggridinfo-btl-xg1-*.dat technical-outputs/
+mv run-st1-xg*.log           log-files/

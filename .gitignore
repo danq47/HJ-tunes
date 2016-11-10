@@ -7,3 +7,5 @@ main-PYTHIA8-lhef
 test2
 main-PYTHIA8_31-lhef
 HJ-run/
+.nfs*
+merge
