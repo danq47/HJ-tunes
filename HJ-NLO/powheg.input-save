@@ -1,5 +1,5 @@
 # Higgs + Jet production parameters
-numevts       250000			! Number of events to generate
+numevts       00			! Number of events to generate
 ih1           1				! hadron 1 (1 for protons, -1 for antiprotons)
 ih2           1				! hadron 2 (1 for protons, -1 for antiprotons)
 ebeam1        6500d0      	! energy of beam 1
@@ -23,10 +23,10 @@ use-old-grid   1  ! if 1 use old grid if file pwggrids.dat is present (# 1: rege
 use-old-ubound 1  ! if 1 use norm of upper bounding function stored in pwgubound.dat, if present; # 1: regenerate
 
 # Integration grid etc parameters
-ncall1        100000  		! number of calls for initializing the integration grid
-itmx1         3        		! number of iterations for initializing the integration grid
-ncall2        250000  		! number of calls for computing the integral and finding upper bound
-itmx2         3        		! number of iterations for computing the integral and finding upper bound
+ncall1        50000  		! number of calls for initializing the integration grid
+itmx1         4        		! number of iterations for initializing the integration grid
+ncall2        100000  		! number of calls for computing the integral and finding upper bound
+itmx2         4        		! number of iterations for computing the integral and finding upper bound
 foldcsi       1       		! number of folds on csi integration
 foldy         1       		! number of folds on  y  integration
 foldphi       1       		! number of folds on phi integration

@@ -1,7 +1,7 @@
 
  Value of counters at end of run:
- setrandom time (sec) =   0.31500000000000000     
- negative pdf values =    696201.00000000000     
- vetoed calls in inclusive cross section =    3577625.0000000000     
- upper bound failure in inclusive cross section =    357.00000000000000     
+ setrandom time (sec) =    5.9999999999999998E-002
+ negative pdf values =    655374.00000000000     
+ vetoed calls in inclusive cross section =    3452997.0000000000     
+ upper bound failure in inclusive cross section =    1431.0000000000000     
 

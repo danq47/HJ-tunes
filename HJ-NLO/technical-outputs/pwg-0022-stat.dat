@@ -1,7 +1,7 @@
- btilde pos.   weights:   25.808841604715226       +-  0.42496721950390209     
- btilde |neg.| weights:   5.6251501675058853       +-   8.8790912386791682E-002
- btilde Total (pos.-|neg.|):   20.183691437211309       +-  0.43137413549856379     
-  Remnant cross section in pb  0.19463835724832221      +-   9.0067102942670741E-004
+ btilde pos.   weights:   31.007127988063260       +-  0.95849492909837064     
+ btilde |neg.| weights:   4.7103201802310473       +-   5.2169713493836374E-002
+ btilde Total (pos.-|neg.|):   26.296807807831787       +-  0.96022848781789250     
+  Remnant cross section in pb  0.19240188784637752      +-   1.0494583255467630E-003
   total (btilde+remnants) cross section times 
-  suppression factor in pb   20.378329794459631      +-  0.43137507575825068     
-  negative weight fraction:  0.17784994621896058     
+  suppression factor in pb   26.489209695678163      +-  0.96022906130767238     
+  negative weight fraction:  0.13117070031946917     

@@ -1,9 +1,9 @@
+LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
+PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
 SVN status Begin
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date
-URL: svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
-Rev.3330
-clean version
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date/HJ-working
+/home/quill
+no svn repository found
+/home/quill/HJ
 URL: svn://powhegbox.mib.infn.it/trunk/User-Processes-V2/HJ
 Rev.3330
 Warning: not a clean version:
@@ -21,7 +21,7 @@ SVN status End
   powheginput keyword compress_lhe         absent; set to   -1000000.0000000000     
   powheginput keyword compress_upb         absent; set to   -1000000.0000000000     
   powheginput keyword testplots            set to    1.0000000000000000     
-  powheginput keyword numevts              set to    250000.00000000000     
+  powheginput keyword numevts              set to    0.0000000000000000     
   powheginput keyword storemintupb         absent; set to   -1000000.0000000000     
   powheginput keyword fastbtlbound         absent; set to   -1000000.0000000000     
   powheginput keyword maxseeds             absent; set to   -1000000.0000000000     
@@ -62,8 +62,6 @@ SVN status End
   powheginput keyword lhans1               set to    91900.000000000000     
   powheginput keyword lhans2               set to    91900.000000000000     
   powheginput keyword lhapdf6maxsets       absent; set to   -1000000.0000000000     
-LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
-PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   check: alpha_s(Mz)=  0.11800021884307436     
   alpha_s order (0,1,2):            2
   Lambda 5 is   0.20836823616052982     
@@ -208,6 +206,58 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   Opened pwggridinfo-btl-xg2-0046.dat                                                                        
   Opened pwggridinfo-btl-xg2-0047.dat                                                                        
   Opened pwggridinfo-btl-xg2-0048.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0049.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0050.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0051.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0052.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0053.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0054.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0055.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0056.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0057.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0058.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0059.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0060.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0061.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0062.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0063.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0064.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0065.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0066.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0067.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0068.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0069.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0070.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0071.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0072.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0073.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0074.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0075.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0076.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0077.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0078.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0079.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0080.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0081.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0082.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0083.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0084.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0085.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0086.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0087.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0088.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0089.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0090.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0091.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0092.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0093.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0094.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0095.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0096.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0097.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0098.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0099.dat                                                                        
+  Opened pwggridinfo-btl-xg2-0100.dat                                                                        
   Opened pwggridinfo-rmn-xg2-0001.dat                                                                        
   Opened pwggridinfo-rmn-xg2-0002.dat                                                                        
   Opened pwggridinfo-rmn-xg2-0003.dat                                                                        
@@ -256,14 +306,38 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   Opened pwggridinfo-rmn-xg2-0046.dat                                                                        
   Opened pwggridinfo-rmn-xg2-0047.dat                                                                        
   Opened pwggridinfo-rmn-xg2-0048.dat                                                                        
-  powheginput keyword foldcsi              set to    1.0000000000000000     
-  powheginput keyword foldy                set to    1.0000000000000000     
-  powheginput keyword foldphi              set to    1.0000000000000000     
- RM48 INITIALIZED:        10           0         0
-  POWHEG: Computing pos.+|neg.|  weight contribution to inclusive cross section
-  powheginput keyword ncall2               set to    250000.00000000000     
-  powheginput keyword itmx2                set to    3.0000000000000000     
-  powheginput keyword ncall2rm             absent; set to   -1000000.0000000000     
+  Opened pwggridinfo-rmn-xg2-0049.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0050.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0051.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0052.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0053.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0054.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0055.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0056.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0057.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0058.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0059.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0060.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0061.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0062.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0063.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0064.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0065.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0066.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0067.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0068.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0069.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0070.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0071.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0072.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0073.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0074.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0075.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0076.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0077.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0078.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0079.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0080.dat                                                                        
 #--------------------------------------------------------------------------
 #                         FastJet release 3.2.0
 #                 M. Cacciari, G.P. Salam and G. Soyez                  
@@ -277,8 +351,34 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
 # It uses T. Chan's closest pair algorithm, S. Fortune's Voronoi code
 # and 3rd party plugin jet algorithms. See COPYING file for details.
 #--------------------------------------------------------------------------
-Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
-  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
+  Opened pwggridinfo-rmn-xg2-0081.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0082.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0083.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0084.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0085.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0086.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0087.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0088.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0089.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0090.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0091.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0092.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0093.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0094.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0095.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0096.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0097.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0098.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0099.dat                                                                        
+  Opened pwggridinfo-rmn-xg2-0100.dat                                                                        
+  powheginput keyword foldcsi              set to    1.0000000000000000     
+  powheginput keyword foldy                set to    1.0000000000000000     
+  powheginput keyword foldphi              set to    1.0000000000000000     
+ RM48 INITIALIZED:        10           0         0
+  POWHEG: Computing pos.+|neg.|  weight contribution to inclusive cross section
+  powheginput keyword ncall2               set to    100000.00000000000     
+  powheginput keyword itmx2                set to    4.0000000000000000     
+  powheginput keyword ncall2rm             absent; set to   -1000000.0000000000     
   powheginput keyword itmx2rm              absent; set to   -1000000.0000000000     
   powheginput keyword stage2init           absent; set to   -1000000.0000000000     
   powheginput keyword fixedgrid            absent; set to   -1000000.0000000000     
@@ -295,25 +395,29 @@ Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
  *********************
   powheginput keyword btlscalereal         absent; set to   -1000000.0000000000     
   powheginput keyword btlscalect           absent; set to   -1000000.0000000000     
-   30.998802170343630       0.11170596721308701     
-   31.022997938983128       0.12875031580978524     
-   31.252529914948113       0.25564359307660556     
- tot:   19.676113683650136      +-  0.10567799760052056     
- abs:   31.091443341425194      +-  0.10241997986364158     
- pos:   25.383778512537578      +-   9.2425477214144056E-002
- neg:   5.7076648288874381      +-   4.7816073529712337E-002
+   35.115093214043021       0.18078125115242202     
+   34.708765527494009       0.15174367533174593     
+   35.130113135320876       0.19222284321593155     
+   34.870228722669893       0.16373251713836054     
+ tot:   25.222356136662238      +-   9.3715356007890216E-002
+ abs:   34.956050149882188      +-   8.6410070112701867E-002
+ pos:   30.089203143272055      +-   6.9026974981120426E-002
+Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
+ neg:   4.8668470066102509      +-   5.7964737636248813E-002
   powheginput keyword ubsigmadetails       absent; set to   -1000000.0000000000     
- btilde pos.   weights:   25.383778512537578       +-   9.2425477214144056E-002
- btilde |neg.| weights:   5.7076648288874381       +-   4.7816073529712337E-002
- btilde total (pos.-|neg.|):   19.676113683650136       +-  0.10567799760052056     
+ btilde pos.   weights:   30.089203143272055       +-   6.9026974981120426E-002
+ btilde |neg.| weights:   4.8668470066102509       +-   5.7964737636248813E-002
+ btilde total (pos.-|neg.|):   25.222356136662238       +-   9.3715356007890216E-002
   POWHEG: Computing remnant and/or regular remnants
-  0.19365946912538515        1.2952062328587298E-003
-  0.19287565833883810        1.2263188963429186E-003
-  0.19421221506485331        1.3324625728556659E-003
-  Remnant cross section in pb  0.19358244750969220      +-   7.4213485878291965E-004
+  0.19183135713986180        1.7981823846483563E-003
+  0.19776643757818829        4.1552247607728535E-003
+  0.19468692868325033        1.9200670738823342E-003
+  0.19036684988140468        1.8071716529590534E-003
+  Remnant cross section in pb  0.19366289332067627      +-   1.3098711939055214E-003
   total (btilde+remnants) cross section times 
-  suppression factor in pb   19.869696131159827      +-  0.10568060342846387     
-  negative weight fraction:  0.18244079028076746     
+  suppression factor in pb   25.416019029982916      +-   9.3724509677192924E-002
+  negative weight fraction:  0.13846050465983276     
  powheginput WARNING: unused variable ndns1               
  powheginput WARNING: unused variable ndns2               
  powheginput WARNING: unused variable hdecaymode          

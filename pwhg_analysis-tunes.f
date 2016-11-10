@@ -293,8 +293,6 @@ c     Total plots
          call filld('Yj2',rapj(2),dsig)
       endif
       
-      if(abs(y_higgs).gt.5) write(*,*) 'test!!'
-
 c     Transverse momentum plots split into yHiggs bins
       do kxx=1,len_y
          

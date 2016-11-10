@@ -1,9 +1,9 @@
+LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
+PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
 SVN status Begin
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date
-URL: svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
-Rev.3330
-clean version
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date/HJ-working
+/home/quill
+no svn repository found
+/home/quill/HJ
 URL: svn://powhegbox.mib.infn.it/trunk/User-Processes-V2/HJ
 Rev.3330
 Warning: not a clean version:
@@ -21,7 +21,7 @@ SVN status End
   powheginput keyword compress_lhe         absent; set to   -1000000.0000000000     
   powheginput keyword compress_upb         absent; set to   -1000000.0000000000     
   powheginput keyword testplots            set to    1.0000000000000000     
-  powheginput keyword numevts              set to    250000.00000000000     
+  powheginput keyword numevts              set to    0.0000000000000000     
   powheginput keyword storemintupb         absent; set to   -1000000.0000000000     
   powheginput keyword fastbtlbound         absent; set to   -1000000.0000000000     
   powheginput keyword maxseeds             absent; set to   -1000000.0000000000     
@@ -62,8 +62,6 @@ SVN status End
   powheginput keyword lhans1               set to    91900.000000000000     
   powheginput keyword lhans2               set to    91900.000000000000     
   powheginput keyword lhapdf6maxsets       absent; set to   -1000000.0000000000     
-LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
-PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   check: alpha_s(Mz)=  0.11800021884307436     
   alpha_s order (0,1,2):            2
   Lambda 5 is   0.20836823616052982     
@@ -135,13 +133,13 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
  RM48 INITIALIZED:  54217137           4         0
  RM48IN SKIPPING OVER               4
  RM48 INITIALIZED:  54217137          14         0
-Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
-  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
  RM48IN SKIPPING OVER              14
  Writing realequiv file...
  Done
  RM48 INITIALIZED:  54217137          14         0
  RM48IN SKIPPING OVER              14
+Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
  Writing realequivregions file...
  Done
   powheginput keyword olddij               absent; set to   -1000000.0000000000     
@@ -168,9 +166,9 @@ Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
   factor to set up the adaptive grid
  RM48 INITIALIZED:  54217137           0         0
  RM48 INITIALIZED: 474440641           0         0
-  powheginput keyword ncall1               set to    100000.00000000000     
+  powheginput keyword ncall1               set to    50000.000000000000     
   powheginput keyword ncall1rm             absent; set to   -1000000.0000000000     
-  powheginput keyword itmx1                set to    3.0000000000000000     
+  powheginput keyword itmx1                set to    4.0000000000000000     
   powheginput keyword itmx1rm              absent; set to   -1000000.0000000000     
   result +- errtot (picobarn) for each iteration
   powheginput keyword fixedgrid            absent; set to   -1000000.0000000000     
@@ -184,11 +182,11 @@ Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
  Done
   powheginput keyword btlscalereal         absent; set to   -1000000.0000000000     
   powheginput keyword btlscalect           absent; set to   -1000000.0000000000     
-   30.903844276074604       0.26913779921936970     
+   34.595321292509773       0.41453030690052101     
   Computing the integral of the remnant cross section
  times the suppression factor
   to set up the adaptive grid
-  0.20297039342404133        4.5909998355479114E-003
+  0.19930314123133186        5.9888359511557059E-003
   Importance sampling x grids generated and stored
  powheginput WARNING: unused variable ndns1               
  powheginput WARNING: unused variable ndns2               

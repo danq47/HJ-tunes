@@ -1,9 +1,9 @@
+LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
+PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
 SVN status Begin
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date
-URL: svn://powhegbox.mib.infn.it/trunk/POWHEG-BOX-V2
-Rev.3330
-clean version
-/unix/theory/quill/POWHEG-RES-INSTALL/POWHEG-BOX-V2-up-to-date/HJ-working
+/home/quill
+no svn repository found
+/home/quill/HJ
 URL: svn://powhegbox.mib.infn.it/trunk/User-Processes-V2/HJ
 Rev.3330
 Warning: not a clean version:
@@ -21,7 +21,7 @@ SVN status End
   powheginput keyword compress_lhe         absent; set to   -1000000.0000000000     
   powheginput keyword compress_upb         absent; set to   -1000000.0000000000     
   powheginput keyword testplots            set to    1.0000000000000000     
-  powheginput keyword numevts              set to    250000.00000000000     
+  powheginput keyword numevts              set to    0.0000000000000000     
   powheginput keyword storemintupb         absent; set to   -1000000.0000000000     
   powheginput keyword fastbtlbound         absent; set to   -1000000.0000000000     
   powheginput keyword maxseeds             absent; set to   -1000000.0000000000     
@@ -62,8 +62,6 @@ SVN status End
   powheginput keyword lhans1               set to    91900.000000000000     
   powheginput keyword lhans2               set to    91900.000000000000     
   powheginput keyword lhapdf6maxsets       absent; set to   -1000000.0000000000     
-LHAPDF 6.1.6 loading /unix/theory/quill/POWHEG-RES-INSTALL/local/share/LHAPDF/PDF4LHC15_nnlo_30/PDF4LHC15_nnlo_30_0000.dat
-PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   check: alpha_s(Mz)=  0.11800021884307436     
   alpha_s order (0,1,2):            2
   Lambda 5 is   0.20836823616052982     
@@ -214,9 +212,61 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   Opened pwggridinfo-btl-xg1-0046.dat                                                                        
   Opened pwggridinfo-btl-xg1-0047.dat                                                                        
   Opened pwggridinfo-btl-xg1-0048.dat                                                                        
-  powheginput keyword ncall1               set to    100000.00000000000     
+  Opened pwggridinfo-btl-xg1-0049.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0050.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0051.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0052.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0053.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0054.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0055.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0056.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0057.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0058.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0059.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0060.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0061.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0062.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0063.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0064.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0065.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0066.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0067.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0068.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0069.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0070.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0071.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0072.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0073.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0074.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0075.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0076.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0077.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0078.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0079.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0080.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0081.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0082.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0083.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0084.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0085.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0086.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0087.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0088.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0089.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0090.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0091.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0092.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0093.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0094.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0095.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0096.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0097.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0098.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0099.dat                                                                        
+  Opened pwggridinfo-btl-xg1-0100.dat                                                                        
+  powheginput keyword ncall1               set to    50000.000000000000     
   powheginput keyword ncall1rm             absent; set to   -1000000.0000000000     
-  powheginput keyword itmx1                set to    3.0000000000000000     
+  powheginput keyword itmx1                set to    4.0000000000000000     
   powheginput keyword itmx1rm              absent; set to   -1000000.0000000000     
   result +- errtot (picobarn) for each iteration
   powheginput keyword fixedgrid            absent; set to   -1000000.0000000000     
@@ -230,7 +280,7 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
  Done
   powheginput keyword btlscalereal         absent; set to   -1000000.0000000000     
   powheginput keyword btlscalect           absent; set to   -1000000.0000000000     
-   31.401527515448855       0.29589897214848243     
+   35.352142581315839       0.31513634569452720     
   Computing the integral of the remnant cross section
  times the suppression factor
   to set up the adaptive grid
@@ -274,8 +324,6 @@ PDF4LHC15_nnlo_30 PDF set, member #0, version 2; LHAPDF ID = 91900
   Opened pwggridinfo-rmn-xg1-0038.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0039.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0040.dat                                                                        
-Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
-  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
   Opened pwggridinfo-rmn-xg1-0041.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0042.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0043.dat                                                                        
@@ -284,11 +332,65 @@ Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
   Opened pwggridinfo-rmn-xg1-0046.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0047.dat                                                                        
   Opened pwggridinfo-rmn-xg1-0048.dat                                                                        
-  0.19550169501463391        2.0179190958759178E-003
+  Opened pwggridinfo-rmn-xg1-0049.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0050.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0051.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0052.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0053.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0054.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0055.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0056.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0057.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0058.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0059.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0060.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0061.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0062.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0063.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0064.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0065.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0066.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0067.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0068.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0069.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0070.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0071.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0072.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0073.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0074.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0075.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0076.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0077.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0078.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0079.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0080.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0081.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0082.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0083.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0084.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0085.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0086.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0087.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0088.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0089.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0090.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0091.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0092.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0093.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0094.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0095.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0096.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0097.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0098.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0099.dat                                                                        
+  Opened pwggridinfo-rmn-xg1-0100.dat                                                                        
+  0.19590806189689863        3.2222997968337453E-003
   Importance sampling x grids generated and stored
  powheginput WARNING: unused variable ndns1               
  powheginput WARNING: unused variable ndns2               
  powheginput WARNING: unused variable hdecaymode          
+Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)
  powheginput WARNING: unused variable use-old-grid        
  powheginput WARNING: unused variable use-old-ubound      
  powheginput WARNING: unused variable ncall2              
