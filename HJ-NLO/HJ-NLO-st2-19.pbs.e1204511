@@ -1,0 +1,6 @@
+mv: cannot stat `pwgcounters-st1-*.dat': No such file or directory
+mv: cannot stat `pwg-xg*-*-btlgrid.top': No such file or directory
+mv: target `technical-outputs/' is not a directory
+mv: target `technical-outputs/' is not a directory
+mv: cannot stat `pwggridinfo-btl-xg1-*.dat': No such file or directory
+mv: cannot stat `run-st1-xg*.log': No such file or directory
