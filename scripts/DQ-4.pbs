@@ -17,14 +17,14 @@ scriptNumber=4
 nJobs=4
 startSeed=$(( ( nJobs*(scriptNumber-1) ) + 1 ))
 endSeed=$((startSeed+nJobs-1))
-maxBigLoops=50
+maxBigLoops=20
 do_st1=0
 do_st2=0
 do_NLOplots=0
 do_st3=0
 do_st4=1
 do_rwgt=1
-do_lhef=0
+do_lhef=1
 do_py6=0
 do_py8=1
 #

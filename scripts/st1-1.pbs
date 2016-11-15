@@ -77,7 +77,6 @@ fi
 if [ $scriptNumber -eq 1 ] ; then
 	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
 	(echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
-
 	cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 1/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
 fi
 
@@ -106,8 +105,8 @@ fi
 
 ###########################################################################
 # Tidy up
-mv pwgcounters-st1-*.dat    technical-outputs/
+#mv pwgcounters-st1-*.dat    technical-outputs/
 #mv pwg-xg*-*-btlgrid.top    technical-outputs/
-mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
+#mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
+#mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
 

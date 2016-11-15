@@ -29,6 +29,7 @@ do_lhef=0
 do_py6=0
 do_py8=0
 #
+
 ###########################################################################
 #
 echo -e "\nJob running parameters:\n"
@@ -63,7 +64,6 @@ fi
 if [ $scriptNumber -eq 1 ] ; then
 	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
 	(echo -n Starting st1 xg ' ' ; date ) >> Timings/Timings-initialisation.txt
-
 	cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 2/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
 fi
 

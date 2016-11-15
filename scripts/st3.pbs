@@ -65,10 +65,9 @@ fi
 
 if [ $scriptNumber -eq 1 ] ; then
 
-	cat powheg.input-save | sed 's/parallelstage.*/parallelstage 3/' > powheg.input
 	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
 	(echo -n Starting st3 ' ' ; date ) >> Timings/Timings-initialisation.txt
-
+	cat powheg.input-save | sed 's/parallelstage.*/parallelstage 3/' > powheg.input
 fi
 
 # DQ - loop over NLO bits
