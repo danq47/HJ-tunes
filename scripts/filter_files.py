@@ -77,8 +77,10 @@ while not passed:
 # If passed is false, we need to find the worst file, and remove it	
 
 	if not passed:
+		files = glob.glob('pwg-*-stat.dat')
+		files.extend(glob.glob('pwggrid-*.dat'))
+		files.extend(glob.glob('pwgcounters-*.dat'))
 		seedToRemove=df[df['Error'] == df['Error'].max()]['Seed'].values[0]
-		for filename in glob.iglob('pwg-st2-*-stat.dat'):
+		for filename in files:
 			if seedToRemove in filename:
 				os.rename(filename,filename+'-save')
-
