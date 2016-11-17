@@ -38,7 +38,8 @@ mv run-st2-*.log                       log-files/
 mv pwg-[0-9][0-9][0-9][0-9]-stat.dat   technical-outputs/
 mv pwg-[0-9][0-9][0-9][0-9]-*grid.top  technical-outputs/
 mv pwg-*NLO.top                        NLO-output
-
+mkdir technical-outputs/bad-st2-dat-files
+mv *save technical-outputs/bad-st2-dat-files
 ###########################################################################
 # Get the name of the directory we're submitting this script from.
 basedir=$PBS_O_WORKDIR
