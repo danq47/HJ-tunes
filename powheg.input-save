@@ -11,6 +11,8 @@ lhans2        91900     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
 facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact 
 
+maxseeds 5000
+
 # Higgs properties
 hmass         125.09		! Higgs mass (GeV)
 hwidth        0.0041644		! Higgs width

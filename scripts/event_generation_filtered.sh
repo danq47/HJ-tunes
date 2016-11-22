@@ -10,7 +10,7 @@ startingSeed=1
 numScripts=20
 
 # Stage 1 - grids
-if [ do_st1 -eq 1 ] ; then
+if [ $do_st1 -eq 1 ] ; then
 # Stage 1 - xgrid 1
     XG1=""
     for i in `seq 1 $numScripts` ; do
@@ -39,12 +39,12 @@ if [ do_st1 -eq 1 ] ; then
 fi
 
 # Stage 2 - NLO and btilde upper bound
-if [ do_st2 -eq 1] ; then
+if [ $do_st2 -eq 1 ] ; then
     ST2=""
     for i in `seq 1 $numScripts` ; do
         cp ../scripts/st2.pbs `basename $PWD`-st2-$i.pbs
 # Check whether we should do NLO plots
-        if [ do_NLOplots -eq 1 ] ; then
+        if [ $do_NLOplots -eq 1 ] ; then
             sed -i "s/do_NLOplots=.*/do_NLOplots=1/g" `basename $PWD`-st2-$i.pbs
         else
             sed -i "s/do_NLOplots=.*/do_NLOplots=0/g" `basename $PWD`-st2-$i.pbs
@@ -53,7 +53,7 @@ if [ do_st2 -eq 1] ; then
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st2-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st2-$i.pbs
 # Check whether we depend on st1
-        if [ do_st1 -eq 1 ] ; then
+        if [ $do_st1 -eq 1 ] ; then
             if [ $i -eq 1 ] ; then
                 ST2=$(qsub -W depend=afterany:$XG2 `basename $PWD`-st2-$i.pbs)
             else
@@ -78,7 +78,7 @@ if [ do_st2 -eq 1] ; then
 fi
 
 # Stage 3 - upper bound for veto algorithm
-if [ do_st3 -eq 1 ] ; then
+if [ $do_st3 -eq 1 ] ; then
     ST3=""
     for i in `seq 1 $numScripts` ; do
         cp ../scripts/st3.pbs `basename $PWD`-st3-$i.pbs
@@ -86,7 +86,7 @@ if [ do_st3 -eq 1 ] ; then
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st3-$i.pbs
 
 # Check whether we are dependent on previous stages
-        if [ do_st2 -eq 1 ] ; then
+        if [ $do_st2 -eq 1 ] ; then
             if [ $i -eq 1 ] ; then
                 ST3=$(qsub -W depend=afterany:$ST25 `basename $PWD`-st3-$i.pbs)
             else
@@ -100,20 +100,21 @@ if [ do_st3 -eq 1 ] ; then
             fi
         fi
     done
+fi
 
 # Stage 4 - event generation
-if [ do_st4 -eq 1 ] ; then
+if [ $do_st4 -eq 1 ] ; then
     for i in `seq 1 $numScripts` ; do
         cp ../scripts/DQ-$i.pbs `basename $PWD`-st4-$i.pbs
 
 # Check if we need to do LHEF/P8 showering
-        if [ do_LHEF -eq 1 ] ; then
+        if [ $do_LHEF -eq 1 ] ; then
             sed -i "s/do_lhef=.*/do_lhef=1/g" `basename $PWD`-st4-$i.pbs
         else
             sed -i "s/do_lhef=.*/do_lhef=0/g" `basename $PWD`-st4-$i.pbs
         fi
 
-        if [ do_P8 -eq 1 ] ; then
+        if [ $do_P8 -eq 1 ] ; then
             sed -i "s/do_py8=.*/do_py8=1/g" `basename $PWD`-st4-$i.pbs
         else
             sed -i "s/do_py8=.*/do_py8=0/g" `basename $PWD`-st4-$i.pbs
@@ -124,7 +125,7 @@ if [ do_st4 -eq 1 ] ; then
         sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st4-$i.pbs
 
 # Check whether we depend on previous stages
-        if [ do_st3 -eq 1 ] ; then
+        if [ $do_st3 -eq 1 ] ; then
             qsub -W depend=afterany:$ST3 `basename $PWD`-st4-$i.pbs
         else
             qsub `basename $PWD`-st4-$i.pbs
