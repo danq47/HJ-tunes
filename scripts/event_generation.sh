@@ -5,7 +5,7 @@ numScripts=20
 XG1=""
 for i in `seq 1 $numScripts` ; do
     cp ../scripts/st1-1.pbs `basename $PWD`-xg1-$i.pbs
-    sed -i "s/nScripts=15/nScripts=$numScripts/g" `basename $PWD`-xg1-$i.pbs
+    sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-xg1-$i.pbs
     sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-xg1-$i.pbs
     if [ $i -eq 1 ] ; then
 	XG1=$(qsub `basename $PWD`-xg1-$i.pbs)
@@ -18,7 +18,7 @@ done
 XG2=""
 for i in `seq 1 $numScripts` ; do
     cp ../scripts/st1-2.pbs `basename $PWD`-xg2-$i.pbs
-    sed -i "s/nScripts=15/nScripts=$numScripts/g" `basename $PWD`-xg2-$i.pbs
+    sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-xg2-$i.pbs
     sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-xg2-$i.pbs
     if [ $i -eq 1 ] ; then
 	XG2=$(qsub -W depend=afterany:$XG1 `basename $PWD`-xg2-$i.pbs)
@@ -31,7 +31,7 @@ done
 ST2=""
 for i in `seq 1 $numScripts` ; do
     cp ../scripts/st2.pbs `basename $PWD`-st2-$i.pbs
-    sed -i "s/nScripts=15/nScripts=$numScripts/g" `basename $PWD`-st2-$i.pbs
+    sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st2-$i.pbs
     sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st2-$i.pbs
     if [ $i -eq 1 ] ; then
 	ST2=$(qsub -W depend=afterany:$XG2 `basename $PWD`-st2-$i.pbs)
@@ -44,7 +44,7 @@ done
 ST3=""
 for i in `seq 1 $numScripts` ; do
    cp ../scripts/st3.pbs `basename $PWD`-st3-$i.pbs
-   sed -i "s/nScripts=15/nScripts=$numScripts/g" `basename $PWD`-st3-$i.pbs
+   sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st3-$i.pbs
    sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st3-$i.pbs
    if [ $i -eq 1 ] ; then
        ST3=$(qsub -W depend=afterany:$ST2 `basename $PWD`-st3-$i.pbs)
@@ -56,8 +56,9 @@ done
 # Stage 4 - event generation
 for i in `seq 1 $numScripts` ; do
     cp ../scripts/DQ-$i.pbs `basename $PWD`-st4-$i.pbs
-    sed -i "s/nScripts=15/nScripts=$numScripts/g" `basename $PWD`-st4-$i.pbs
+    sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st4-$i.pbs
     sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st4-$i.pbs
+    sed -i "s/scriptNumber=.*/scriptNumber=$i/g" `basename $PWD`-st4-$i.pbs
     qsub -W depend=afterany:$ST3 `basename $PWD`-st4-$i.pbs
 done
 
