@@ -29,14 +29,6 @@ do_lhef=0
 do_py6=0
 do_py8=0
 
-###########################################################################
-# Tidy up
-mv pwgcounters-st1-*.dat    technical-outputs/
-mv pwg-xg*-*-btlgrid.top    technical-outputs/
-mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
-mv pwggridinfo-btl-xg1-*.dat technical-outputs/
-mv run-st1-xg*.log           log-files/
 
 ###########################################################################
 # Get the name of the directory we're submitting this script from.
@@ -54,6 +46,15 @@ if [ ! -e powheg.input-save ] ; then
     exit
 fi
 #
+###########################################################################
+# Tidy up
+mv pwgcounters-st1-*.dat    technical-outputs/
+mv pwg-xg*-*-btlgrid.top    technical-outputs/
+mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
+mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
+mv pwggridinfo-btl-xg1-*.dat technical-outputs/
+mv run-st1-xg*.log           log-files/
+
 ###########################################################################
 ###########################################################################
 #                                                                         #
