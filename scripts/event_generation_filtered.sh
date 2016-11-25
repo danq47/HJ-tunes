@@ -24,6 +24,13 @@ if [ $do_st1 -eq 1 ] ; then
         fi
     done
 
+# Stage 1.5 - filter out bad files
+
+    XG1F=""
+    cp ../scripts/filter_xg1.sh .
+    cp ../scripts/filter_bad_xg1.py .
+    XG1F=$(qsub -W depend=afterany:$XG1 filter_xg1.sh)
+
 # Stage 1 - xgrid 2
     XG2=""
     for i in `seq 1 $numScripts` ; do
@@ -31,12 +38,19 @@ if [ $do_st1 -eq 1 ] ; then
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-xg2-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-xg2-$i.pbs
         if [ $i -eq 1 ] ; then
-            XG2=$(qsub -W depend=afterany:$XG1 `basename $PWD`-xg2-$i.pbs)
+            XG2=$(qsub -W depend=afterany:$XG1F `basename $PWD`-xg2-$i.pbs)
         else
-            XG2=$XG2:$(qsub -W depend=afterany:$XG1 `basename $PWD`-xg2-$i.pbs)
+            XG2=$XG2:$(qsub -W depend=afterany:$XG1F `basename $PWD`-xg2-$i.pbs)
         fi
     done
 fi
+
+# filter out bad xg2 files
+
+    XG2F=""
+    cp ../scripts/filter_xg2.sh .
+    cp ../scripts/filter_bad_xg2.py .
+    XG2F=$(qsub -W depend=afterany:$XG2 filter_xg2.sh)
 
 # Stage 2 - NLO and btilde upper bound
 if [ $do_st2 -eq 1 ] ; then
@@ -55,9 +69,9 @@ if [ $do_st2 -eq 1 ] ; then
 # Check whether we depend on st1
         if [ $do_st1 -eq 1 ] ; then
             if [ $i -eq 1 ] ; then
-                ST2=$(qsub -W depend=afterany:$XG2 `basename $PWD`-st2-$i.pbs)
+                ST2=$(qsub -W depend=afterany:$XG2F `basename $PWD`-st2-$i.pbs)
             else
-                ST2=$ST2:$(qsub -W depend=afterany:$XG2 `basename $PWD`-st2-$i.pbs)
+                ST2=$ST2:$(qsub -W depend=afterany:$XG2F `basename $PWD`-st2-$i.pbs)
             fi
         else
             if [ $i -eq 1 ] ; then
@@ -71,9 +85,9 @@ if [ $do_st2 -eq 1 ] ; then
 # Stage 2.5 - filter out bad st2 files
 
     ST25=""
-    cp ../scripts/filter.sh .
-    cp ../scripts/filter_files.py .
-    ST25=$(qsub -W depend=afterany:$ST2 filter.sh)
+    cp ../scripts/filter_st2.sh .
+    cp ../scripts/filter_bad_st2.py .
+    ST25=$(qsub -W depend=afterany:$ST2 filter_st2.sh)
 
 fi
 
