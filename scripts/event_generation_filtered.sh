@@ -27,8 +27,8 @@ if [ $do_st1 -eq 1 ] ; then
 # Stage 1.5 - filter out bad files
 
     XG1F=""
-    cp ../scripts/filter_xg1.sh .
-    cp ../scripts/filter_bad_xg1.py .
+    cp ../scripts/filtering_scripts/filter_xg1.sh .
+    cp ../scripts/filtering_scripts/filter_bad_xg1.py .
     XG1F=$(qsub -W depend=afterany:$XG1 filter_xg1.sh)
 
 # Stage 1 - xgrid 2
@@ -48,8 +48,8 @@ fi
 # filter out bad xg2 files
 
     XG2F=""
-    cp ../scripts/filter_xg2.sh .
-    cp ../scripts/filter_bad_xg2.py .
+    cp ../scripts/filtering_scripts/filter_xg2.sh .
+    cp ../scripts/filtering_scripts/filter_bad_xg2.py .
     XG2F=$(qsub -W depend=afterany:$XG2 filter_xg2.sh)
 
 # Stage 2 - NLO and btilde upper bound
@@ -85,8 +85,8 @@ if [ $do_st2 -eq 1 ] ; then
 # Stage 2.5 - filter out bad st2 files
 
     ST25=""
-    cp ../scripts/filter_st2.sh .
-    cp ../scripts/filter_bad_st2.py .
+    cp ../scripts/filtering_scripts/filter_st2.sh .
+    cp ../scripts/filtering_scripts/filter_bad_st2.py .
     ST25=$(qsub -W depend=afterany:$ST2 filter_st2.sh)
 
 fi
