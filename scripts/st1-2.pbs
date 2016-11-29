@@ -63,7 +63,7 @@ fi
 
 if [ $scriptNumber -eq 1 ] ; then
 	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
-	(echo -n Starting st1 xg ' ' ; date ) >> Timings/Timings-initialisation.txt
+	(echo -n Starting st1 xg2 ' ' ; date ) >> Timings/Timings-initialisation.txt
 fi
 
 mkdir -p xg2-$scriptNumber
