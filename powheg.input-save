@@ -6,8 +6,8 @@ ebeam1        6500d0      	! energy of beam 1
 ebeam2        6500d0      	! energy of beam 2
 ndns1         131       	! pdf for hadron 1 (mlm numbering)
 ndns2         131       	! pdf for hadron 2 (mlm numbering)
-lhans1        91900     	! pdf set for hadron 1 (LHA numbering)
-lhans2        91900     	! pdf set for hadron 2 (LHA numbering)
+lhans1        261000     	! pdf set for hadron 1 (LHA numbering)
+lhans2        261000     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
 facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact 
 
