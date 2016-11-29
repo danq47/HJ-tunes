@@ -16,7 +16,6 @@ nScripts=15
 scriptNumber=1
 nJobs=4
 startSeed=$(( ( nJobs*(scriptNumber-1) ) + 1 ))
-startSeedOriginal=$startSeed
 endSeed=$((startSeed+nJobs-1))
 maxBigLoops=1
 do_st1=1
@@ -49,12 +48,15 @@ fi
 ###########################################################################
 # Tidy up
 mv pwgcounters-st1-*.dat    technical-outputs/
-mv pwg-xg*-*-btlgrid.top    technical-outputs/
+mv pwg-xg1-*-btlgrid.top    technical-outputs/
+mv pwg-xg1-*-rmngrid.top    technical-outputs
 mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
 mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
 mv pwggridinfo-btl-xg1-*.dat technical-outputs/
+mv pwggridinfo-rmn-xg1-*.dat technical-outputs
 mv run-st1-xg*.log           log-files/
-
+mkdir -p bad_st1_files
+mv *bad-xg* bad_st1_files
 ###########################################################################
 ###########################################################################
 #                                                                         #
@@ -63,21 +65,23 @@ mv run-st1-xg*.log           log-files/
 ###########################################################################
 ###########################################################################
 
-if [ $scriptNumber -eq 1 ] ; then
+mkdir st2-$scriptNumber
+cd st2-$scriptNumber
+cp ../pwhg_main .
+cp ../*.dat .
+cp ../powheg.input-save .
+cp ../*.top .
 
-	if [ $do_NLOplots -eq 1 ] ; then
-	   cat powheg.input-save | sed 's/parallelstage.*/parallelstage 2/ ; s/testplots.*/testplots 1/' > powheg.input
-	else
-	   cat powheg.input-save | sed 's/parallelstage.*/parallelstage 2/ ; s/testplots.*/testplots 0/' > powheg.input
-	fi
-	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
-	(echo -n Starting st2 ' ' ; date ) >> Timings/Timings-initialisation.txt
-
+if [ $do_NLOplots -eq 1 ] ; then
+   cat powheg.input-save | sed 's/parallelstage.*/parallelstage 2/ ; s/testplots.*/testplots 1/' > powheg.input
+else
+   cat powheg.input-save | sed 's/parallelstage.*/parallelstage 2/ ; s/testplots.*/testplots 0/' > powheg.input
 fi
 
-# DQ - loop over NLO bits
-for NLOLoop in `seq 1 $maxBigLoops`
-do
+if [ $scriptNumber -eq 1 ] ; then
+	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
+	(echo -n Starting st2 ' ' ; date ) >> Timings/Timings-initialisation.txt
+fi
 
 for i in `seq $startSeed $endSeed`
 do
@@ -85,23 +89,12 @@ echo $i | ./pwhg_main > run-st2-$i.log 2>&1 &
 done
 wait
 
-startSeed=$((startSeed+(nJobs*nScripts)))
-endSeed=$((startSeed+nJobs-1))
+mv *.dat $basedir
+mv *.log $basedir
+mv *.top $basedir
+cd $basedir
 
-done # Finish the NLOLoop
-wait
-
-###########################################################################
-# Tidy up
-#mv pwgcounters-st2-*.dat               technical-outputs/
-#mv pwg-st2-*-stat.dat                  technical-outputs/
-#mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-#mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
-#mv run-st2-*.log                       log-files/
-#mv pwg-[0-9][0-9][0-9][0-9]-stat.dat   technical-outputs/
-#mv pwg-[0-9][0-9][0-9][0-9]-*grid.top  technical-outputs/
 mv pwg-*NLO.top			       NLO-output
-#
 
 if [ $scriptNumber -eq $nScripts ] ; then
 	(echo -n Ending   st2 ' ' ; date ) >> Timings/Timings-initialisation.txt

@@ -16,7 +16,6 @@ nScripts=15
 scriptNumber=1
 nJobs=4
 startSeed=$(((nJobs*(scriptNumber-1))+1))
-startSeedOriginal=$startSeed
 endSeed=$((startSeed+nJobs-1))
 maxBigLoops=1
 do_st1=1
@@ -50,6 +49,7 @@ mkdir -p NLO-output
 mkdir -p pwhgalone-output
 mkdir -p LHEF-output
 mkdir -p PYTHIA8-output
+mkdir -p xg1-$scriptNumber
 #
 ###########################################################################
 # Start a file to track how long things take.
@@ -77,23 +77,19 @@ fi
 if [ $scriptNumber -eq 1 ] ; then
 	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
 	(echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
-	cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 1/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
 fi
 
-# DQ - loop over NLO bits
-for NLOLoop in `seq 1 $maxBigLoops`
-do
+cd xg1-$scriptNumber
+cp ../pwhg_main .
+cp ../powheg.input-save .
+cp ../pwgseeds.dat .
+
+cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 1/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
 
 for i in `seq $startSeed $endSeed`
 do
 echo $i | ./pwhg_main > run-st1-xg1-$i.log 2>&1 &
 done
-wait
-
-startSeed=$((startSeed+(nJobs*nScripts)))
-endSeed=$((startSeed+nJobs-1))
-
-done # Finish the NLOLoop
 wait
 
 if [ $scriptNumber -eq $nScripts ] ; then
@@ -102,6 +98,12 @@ if [ $scriptNumber -eq $nScripts ] ; then
 (echo -n Ending   st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
 
 fi
+
+mv *.dat $basedir
+mv *.top $basedir
+mv *.log $basedir
+
+cd $basedir
 
 ###########################################################################
 # Tidy up

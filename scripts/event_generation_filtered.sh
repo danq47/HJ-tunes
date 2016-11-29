@@ -1,13 +1,14 @@
 do_st1=1
 do_st2=1
 do_NLOplots=1
-do_st3=1
-do_st4=1
-do_LHEF=1
-do_P8=1
+do_st3=0
+do_st4=0
+do_LHEF=0
+do_P8=0
 
-startingSeed=1
+startingSeed=81
 numScripts=20
+bigLoops=10
 
 # Stage 1 - grids
 if [ $do_st1 -eq 1 ] ; then
@@ -17,6 +18,7 @@ if [ $do_st1 -eq 1 ] ; then
         cp ../scripts/st1-1.pbs `basename $PWD`-xg1-$i.pbs
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-xg1-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-xg1-$i.pbs
+	sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-xg1-$i.pbs
         if [ $i -eq 1 ] ; then
             XG1=$(qsub `basename $PWD`-xg1-$i.pbs)
         else
@@ -37,6 +39,7 @@ if [ $do_st1 -eq 1 ] ; then
         cp ../scripts/st1-2.pbs `basename $PWD`-xg2-$i.pbs
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-xg2-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-xg2-$i.pbs
+	sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-xg2-$i.pbs
         if [ $i -eq 1 ] ; then
             XG2=$(qsub -W depend=afterany:$XG1F `basename $PWD`-xg2-$i.pbs)
         else
@@ -66,6 +69,7 @@ if [ $do_st2 -eq 1 ] ; then
 
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st2-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st2-$i.pbs
+	sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st2-$i.pbs
 # Check whether we depend on st1
         if [ $do_st1 -eq 1 ] ; then
             if [ $i -eq 1 ] ; then
@@ -98,6 +102,7 @@ if [ $do_st3 -eq 1 ] ; then
         cp ../scripts/st3.pbs `basename $PWD`-st3-$i.pbs
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st3-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st3-$i.pbs
+	sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st3-$i.pbs
 
 # Check whether we are dependent on previous stages
         if [ $do_st2 -eq 1 ] ; then
@@ -137,6 +142,7 @@ if [ $do_st4 -eq 1 ] ; then
         sed -i "s/scriptNumber=.*/scriptNumber=$i/g" `basename $PWD`-st4-$i.pbs
         sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st4-$i.pbs
         sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st4-$i.pbs
+	sed -i "s/maxBigLoops=.*/maxBigLoops=$bigLoops/g" `basename $PWD`-st4-$i.pbs
 
 # Check whether we depend on previous stages
         if [ $do_st3 -eq 1 ] ; then

@@ -20,6 +20,7 @@ passed.append(False)
 
 
 while not passed[0] and not passed[1]:
+    ini=True
 	seeds=[]
 	seeds_long=[]
 	xsec=[]   # 0 will be abs, 1 will be rem
@@ -37,8 +38,6 @@ while not passed[0] and not passed[1]:
 		_.append([])
 
 	for filename in glob.iglob('run-st1-xg2-*.log'):
-
-		ini=True
 
 		if ini:
 			f = open(filename,'r')

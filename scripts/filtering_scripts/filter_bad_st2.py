@@ -14,7 +14,6 @@ import os
 passed = False # if false, remove another file
 
 while not passed:
-
 	seeds=[]
 	xsec=[]
 	err=[]
@@ -80,6 +79,7 @@ while not passed:
 		files = glob.glob('pwg-*-stat.dat')
 		files.extend(glob.glob('pwggrid-*.dat'))
 		files.extend(glob.glob('pwgcounters-*.dat'))
+		files.extend(glob.glob('NLO-output/pwg-*-NLO.top'))
 		seedToRemove=df[df['Error'] == df['Error'].max()]['Seed'].values[0]
 		for filename in files:
 			if seedToRemove in filename:
