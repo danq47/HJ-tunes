@@ -27,9 +27,9 @@ use-old-ubound 1  ! if 1 use norm of upper bounding function stored in pwgubound
 
 # Integration grid etc parameters
 ncall1        100000  		! number of calls for initializing the integration grid
-itmx1         1        		! number of iterations for initializing the integration grid
+itmx1         1        		! MUST BE 1 FOR MY FILTERING TO WORK
 ncall2        100000  		! number of calls for computing the integral and finding upper bound
-itmx2         1        		! number of iterations for computing the integral and finding upper bound
+itmx2         1        		! MUST BE 1 FOR MY FILTERING TO WORK
 foldcsi       1       		! number of folds on csi integration
 foldy         1       		! number of folds on  y  integration
 foldphi       1       		! number of folds on phi integration
@@ -43,7 +43,7 @@ xgriditeration 1
 # MiNLO parameters
 minlo             1		! default 0, set to 1 to use minlo
 minlo_jve         1		! use pT of the hardest jet in Sudakov (rather than pT_H)
-minlo_deltaR      1		! ??? (necessary if minlo_jve is on)
+minlo_deltaR      1		! MiNLO clustering radius
 factsc2min        2       	! at this value the factorization scale is frozen (neede with minlo)
 sudscalevar       1     	! (default 1) scale variation also in Sudakov form factors in minlo 
 quarkmasseffects  0		! turn off quark mass effects (this, and bmass below off by default)
