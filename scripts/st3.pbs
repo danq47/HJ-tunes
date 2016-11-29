@@ -54,8 +54,9 @@ mv run-st2-*.log                       log-files/
 mv pwg-[0-9][0-9][0-9][0-9]-stat.dat   technical-outputs/
 mv pwg-[0-9][0-9][0-9][0-9]-*grid.top  technical-outputs/
 mv pwg-*NLO.top                        NLO-output
-mkdir -p bad-st2-files
-mv pwg*save bad-st2-files
+mkdir -p bad_st2_files
+mv pwg*save bad_st2_files
+mv NLO-output/pwg*top-save bad_st2_files
 ###########################################################################
 ###########################################################################
 #                                                                         #

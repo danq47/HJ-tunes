@@ -22,11 +22,13 @@ else
 	cp ../scripts/event_generation_filtered.sh .
 	
 	cd ../
-
+	
+	echo ""
 	echo "Completed " $DIR
 
     done
 
+    echo ""
     echo "Now don't forget to modify the powheg.input-save files in each directory,"
     echo "plus any modifications you want to make to the shower (main31.cmnd)."
     echo "" 
