@@ -92,18 +92,19 @@ echo $i | ./pwhg_main > run-st1-xg1-$i.log 2>&1 &
 done
 wait
 
-if [ $scriptNumber -eq $nScripts ] ; then
-
-(echo -n ' ' ) >> Timings/Timings-initialisation.txt
-(echo -n Ending   st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
-
-fi
 
 mv *.dat $basedir
 mv *.top $basedir
 mv *.log $basedir
 
 cd $basedir
+
+if [ $scriptNumber -eq $nScripts ] ; then
+
+(echo -n ' ' ) >> Timings/Timings-initialisation.txt
+(echo -n Ending   st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
+
+fi
 
 ###########################################################################
 # Tidy up

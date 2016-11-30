@@ -4,5 +4,5 @@ import os
 
 files = glob.glob('*dat-save')
 for filename in files:
-	filename_tmp=filename.split('-')
-	os.rename(filename,'-'.join(filename_tmp[0:-1]))
+   filename_tmp=filename.split('-')
+   os.rename(filename,'-'.join(filename_tmp[0:-1]))
