@@ -94,6 +94,7 @@ else
     echo "\nCopying $i to base directory";
     cp $i $basedir
 fi
+done
 
 cd $basedir
 rm -rf st3-$scriptNumber

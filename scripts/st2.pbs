@@ -98,6 +98,7 @@ else
     echo "\nCopying $i to base directory";
     cp $i $basedir
 fi
+done
 
 for i in `ls pwg-*NLO.top` ; do
 fi [ -e $basedir/NLO-output/$i ] ; then
@@ -106,6 +107,7 @@ else
    echo "\nCopying $i to NLO-output/";
    cp $i $basedir/NLO-output
 fi
+done
 
 cd $basedir
 rm -rf st2-$scriptNumber

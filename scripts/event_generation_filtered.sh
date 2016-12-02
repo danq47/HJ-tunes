@@ -9,6 +9,7 @@ do_P8=1   # For now we can only do P8 and LHEF if we also do st4
 startingSeed=1
 numScripts=20
 bigLoops=10
+numst2=100
 
 # Stage 1 - grids
 if [ $do_st1 -eq 1 ] ; then
@@ -58,7 +59,7 @@ fi
 # Stage 2 - NLO and btilde upper bound
 if [ $do_st2 -eq 1 ] ; then
     ST2=""
-    for i in `seq 1 $numScripts` ; do
+    for i in `seq 1 $numst2` ; do
         cp ../scripts/st2.pbs `basename $PWD`-st2-$i.pbs
 # Check whether we should do NLO plots
         if [ $do_NLOplots -eq 1 ] ; then

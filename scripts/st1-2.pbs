@@ -89,6 +89,7 @@ else
     echo "\nCopying $i to base directory";
     cp $i $basedir
 fi
+done
 
 cd $basedir
 rm -rf xg2-$scriptNumber
