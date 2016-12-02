@@ -8,7 +8,7 @@
 #PBS -l nodes=1:ppn=4
 
 ###PBS -l procs=4
-#PBS -q short
+#PBS -q medium
 #
 ###########################################################################
 #
@@ -76,17 +76,22 @@ cp ../*.top .
 
 cat powheg.input-save | sed "s/xgriditeration.*/xgriditeration 2/ ; s/parallelstage.*/parallelstage 1/" > powheg.input
 
-
 for i in `seq $startSeed $endSeed`
 do
 echo $i | ./pwhg_main > run-st1-xg2-$i.log 2>&1 &
 done
 wait
 
-mv *dat $basedir
-mv *top $basedir
-mv *log $basedir
+for i in `ls *.dat *.top *.log` ; do
+if [ -e ../$i ] ; then
+    echo "\nFile $i exists in base directory - not copying";
+else
+    echo "\nCopying $i to base directory";
+    cp $i $basedir
+fi
+
 cd $basedir
+rm -rf xg2-$scriptNumber
 
 if [ $scriptNumber -eq $nScripts ] ; then
 
@@ -94,12 +99,3 @@ if [ $scriptNumber -eq $nScripts ] ; then
 (echo -n Ending   st1 xg2 ' ' ; date ) >> Timings/Timings-initialisation.txt
 
 fi
-
-###########################################################################
-# Tidy up
-#mv pwgcounters-st1-*.dat    technical-outputs/
-#mv pwg-xg*-*-btlgrid.top    technical-outputs/
-#mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-#mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
-#mv pwggridinfo-btl-xg1-*.dat technical-outputs/
-#mv run-st1-xg*.log           log-files/

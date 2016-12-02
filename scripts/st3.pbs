@@ -46,6 +46,7 @@ if [ ! -e powheg.input-save ] ; then
 fi
 #
 # Tidy up
+if [ $scriptNumber -eq 1 ] ; then
 mv pwgcounters-st2-*.dat               technical-outputs/
 mv pwg-st2-*-stat.dat                  technical-outputs/
 mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
@@ -57,6 +58,7 @@ mv pwg-*NLO.top                        NLO-output
 mkdir -p bad_st2_files
 mv pwg*save bad_st2_files
 mv NLO-output/pwg*top-save bad_st2_files
+fi
 ###########################################################################
 ###########################################################################
 #                                                                         #
@@ -85,22 +87,17 @@ echo $i | ./pwhg_main > run-st3-$i.log 2>&1 &
 done
 wait
 
-mv *.log $basedir
-mv *.dat $basedir
-mv *.top $basedir
-cd $basedir
+for i in `ls *.dat *.top *.log` ; do
+if [ -e ../$i ] ; then
+    echo "\nFile $i exists in base directory - not copying";
+else
+    echo "\nCopying $i to base directory";
+    cp $i $basedir
+fi
 
+cd $basedir
+rm -rf st3-$scriptNumber
 
 if [ $scriptNumber -eq $nScripts ] ; then
 	(echo -n Ending   st3 ' ' ; date ) >> Timings/Timings-initialisation.txt
 fi
-
-###########################################################################
-# Tidy up
-#mv pwgcounters-st3-*.dat    technical-outputs/
-#mv pwg-st3-*-stat.dat       technical-outputs/
-#mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-#mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
-#mv run-st3-*.log            log-files/
-#mv pwg-[0-9][0-9][0-9][0-9]-stat.dat   technical-outputs/
-#mv pwg-[0-9][0-9][0-9][0-9]-*grid.top  technical-outputs/

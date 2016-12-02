@@ -47,6 +47,7 @@ fi
 #
 ###########################################################################
 # Tidy up
+if [ $scriptNumber -eq 1 ] ; then
 mv pwgcounters-st1-*.dat    technical-outputs/
 mv pwg-xg1-*-btlgrid.top    technical-outputs/
 mv pwg-xg1-*-rmngrid.top    technical-outputs
@@ -57,6 +58,7 @@ mv pwggridinfo-rmn-xg1-*.dat technical-outputs
 mv run-st1-xg*.log           log-files/
 mkdir -p bad_st1_files
 mv *bad-xg* bad_st1_files
+fi
 ###########################################################################
 ###########################################################################
 #                                                                         #
@@ -89,12 +91,24 @@ echo $i | ./pwhg_main > run-st2-$i.log 2>&1 &
 done
 wait
 
-mv *.dat $basedir
-mv *.log $basedir
-mv *.top $basedir
-cd $basedir
+for i in `ls *.dat *.log *.top | grep -v pwg-*NLO.top` ; do
+if [ -e ../$i ] ; then
+    echo "\nFile $i exists in base directory - not copying";
+else
+    echo "\nCopying $i to base directory";
+    cp $i $basedir
+fi
 
-mv pwg-*NLO.top			       NLO-output
+for i in `ls pwg-*NLO.top` ; do
+fi [ -e $basedir/NLO-output/$i ] ; then
+   echo "\nFile $i exists in NLO-output/ - not copying (ERROR - this should not be happening)";
+else
+   echo "\nCopying $i to NLO-output/";
+   cp $i $basedir/NLO-output
+fi
+
+cd $basedir
+rm -rf st2-$scriptNumber
 
 if [ $scriptNumber -eq $nScripts ] ; then
 	(echo -n Ending   st2 ' ' ; date ) >> Timings/Timings-initialisation.txt

@@ -8,7 +8,7 @@
 #PBS -l nodes=1:ppn=4
 
 ###PBS -l procs=4
-#PBS -q short
+#PBS -q medium
 #
 ###########################################################################
 #
@@ -53,7 +53,9 @@ mkdir -p xg1-$scriptNumber
 #
 ###########################################################################
 # Start a file to track how long things take.
+if [ $scriptNumber -eq 1 ] ; then
 > Timings/Timings-initialisation.txt
+fi
 #
 ###########################################################################
 # Check we have executables and a powheg.input-save input file.
@@ -75,8 +77,8 @@ fi
 ###########################################################################
 
 if [ $scriptNumber -eq 1 ] ; then
-	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
-	(echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
+   (echo -n ' ' ) >> Timings/Timings-initialisation.txt
+   (echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
 fi
 
 cd xg1-$scriptNumber
@@ -91,13 +93,17 @@ do
 echo $i | ./pwhg_main > run-st1-xg1-$i.log 2>&1 &
 done
 wait
-
-
-mv *.dat $basedir
-mv *.top $basedir
-mv *.log $basedir
-
+	
+for i in `ls *.dat *.top *.log` ; do
+if [ -e ../$i ] ; then
+    echo "\nFile $i exists in base directory - not copying";
+else
+    echo "\nCopying $i to base directory";
+    cp $i $basedir
+fi
+ 
 cd $basedir
+rm -rf xg1-$scriptNumber
 
 if [ $scriptNumber -eq $nScripts ] ; then
 
@@ -106,10 +112,4 @@ if [ $scriptNumber -eq $nScripts ] ; then
 
 fi
 
-###########################################################################
-# Tidy up
-#mv pwgcounters-st1-*.dat    technical-outputs/
-#mv pwg-xg*-*-btlgrid.top    technical-outputs/
-#mv FlavRegList realequiv realequivregions virtequiv bornequiv technical-outputs/
-#mv pwgborngrid.top pwghistnorms.top pwhg_checklimits          technical-outputs/
 
