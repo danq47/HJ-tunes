@@ -46,7 +46,18 @@ if [ ! -e powheg.input-save ] ; then
 fi
 #
 ###########################################################################
+#
+# Timing
+#
+###########################################################################
+if [ $scriptNumber -eq 1 ] ; then
+        (echo -n ' ' ) >> Timings/Timings-initialisation.txt
+        (echo -n Starting st2 ' ' ; date ) >> Timings/Timings-initialisation.txt
+fi
+###########################################################################
 # Tidy up
+###########################################################################
+
 if [ $scriptNumber -eq 1 ] ; then
 mv pwgcounters-st1-*.dat    technical-outputs/
 mv pwg-xg1-*-btlgrid.top    technical-outputs/
@@ -80,32 +91,29 @@ else
    cat powheg.input-save | sed 's/parallelstage.*/parallelstage 2/ ; s/testplots.*/testplots 0/' > powheg.input
 fi
 
-if [ $scriptNumber -eq 1 ] ; then
-	(echo -n ' ' ) >> Timings/Timings-initialisation.txt
-	(echo -n Starting st2 ' ' ; date ) >> Timings/Timings-initialisation.txt
-fi
-
 for i in `seq $startSeed $endSeed`
 do
 echo $i | ./pwhg_main > run-st2-$i.log 2>&1 &
 done
 wait
 
-for i in `ls *.dat *.log *.top | grep -v pwg-*NLO.top` ; do
-if [ -e ../$i ] ; then
-    echo "\nFile $i exists in base directory - not copying";
-else
-    echo "\nCopying $i to base directory";
-    cp $i $basedir
-fi
-done
-
 for i in `ls pwg-*NLO.top` ; do
-fi [ -e $basedir/NLO-output/$i ] ; then
-   echo "\nFile $i exists in NLO-output/ - not copying (ERROR - this should not be happening)";
+if [ -e $basedir/NLO-output/$i ] ; then
+   echo "ERROR - NLO top file already exists?"
 else
    echo "\nCopying $i to NLO-output/";
    cp $i $basedir/NLO-output
+fi
+done
+
+rm pwg-*NLO.top
+
+for i in `ls *.dat *.log *.top` ; do
+if [ -e ../$i ] ; then
+   echo "File $i exists in base directory, not copying"
+else
+    echo "Copying $i to base directory";
+    cp $i $basedir
 fi
 done
 

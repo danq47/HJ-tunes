@@ -9,7 +9,7 @@ do_P8=1   # For now we can only do P8 and LHEF if we also do st4
 startingSeed=1
 numScripts=20
 bigLoops=10
-numst2=100
+numst2=20
 
 # Stage 1 - grids
 if [ $do_st1 -eq 1 ] ; then

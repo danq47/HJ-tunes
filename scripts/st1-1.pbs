@@ -6,7 +6,6 @@
 #PBS -m abe
 #PBS -M daniel.quill.14@ucl.ac.uk
 #PBS -l nodes=1:ppn=4
-
 ###PBS -l procs=4
 #PBS -q medium
 #
@@ -17,17 +16,6 @@ scriptNumber=1
 nJobs=4
 startSeed=$(((nJobs*(scriptNumber-1))+1))
 endSeed=$((startSeed+nJobs-1))
-maxBigLoops=1
-do_st1=1
-do_st2=1
-do_NLOplots=1
-do_st3=1
-do_st4=0
-do_rwgt=0
-do_lhef=0
-do_py6=0
-do_py8=0
-#
 ###########################################################################
 #
 echo -e "\nJob running parameters:\n"
@@ -41,6 +29,7 @@ basedir=$PBS_O_WORKDIR
 cd $basedir
 #
 ###########################################################################
+if [ $scriptNumber -eq 1 ] ; then
 mkdir -p  technical-outputs
 mkdir -p  log-files
 mkdir -p  Timings
@@ -49,14 +38,10 @@ mkdir -p NLO-output
 mkdir -p pwhgalone-output
 mkdir -p LHEF-output
 mkdir -p PYTHIA8-output
-mkdir -p xg1-$scriptNumber
-#
-###########################################################################
-# Start a file to track how long things take.
-if [ $scriptNumber -eq 1 ] ; then
 > Timings/Timings-initialisation.txt
+(echo -n ' ' ) >> Timings/Timings-initialisation.txt	
+(echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
 fi
-#
 ###########################################################################
 # Check we have executables and a powheg.input-save input file.
 if [ ! -e pwhg_main ] ; then
@@ -71,16 +56,13 @@ fi
 ###########################################################################
 ###########################################################################
 #                                                                         #
-#       					          do xgrids 1			                       #
+#                            do xgrids 1                                  #
 #                                                                         #
 ###########################################################################
 ###########################################################################
+#
 
-if [ $scriptNumber -eq 1 ] ; then
-   (echo -n ' ' ) >> Timings/Timings-initialisation.txt
-   (echo -n Starting st1 xg1 ' ' ; date ) >> Timings/Timings-initialisation.txt
-fi
-
+mkdir xg1-$scriptNumber
 cd xg1-$scriptNumber
 cp ../pwhg_main .
 cp ../powheg.input-save .
@@ -96,9 +78,9 @@ wait
 	
 for i in `ls *.dat *.top *.log` ; do
 if [ -e ../$i ] ; then
-    echo "\nFile $i exists in base directory - not copying";
+   echo "File $i exists in base directory, not copying"
 else
-    echo "\nCopying $i to base directory";
+    echo "Copying $i to base directory";
     cp $i $basedir
 fi
 done

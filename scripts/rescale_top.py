@@ -1,4 +1,5 @@
 import sys
+from decimal import Decimal
 
 def convert_to_float(str_num): # top files give numbers as strings with a D instead of E for exponential
     tmp=str_num[:-4]+'E'+str_num[-3:]
@@ -43,7 +44,7 @@ while True:
                 slice_width = 1.0
         else: # so it's not a title line and it's not a blank line, therefore we divide column 3 and 4 by slice width
             for i in range(2,4):
-                line[i] = str(convert_to_float(line[i])/slice_width)
+                line[i] = '%.8E' % Decimal(str(convert_to_float(line[i])/slice_width))
 
         line = " ".join(line) # remake the line in the .top format for writing
     else:
