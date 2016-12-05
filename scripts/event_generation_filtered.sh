@@ -9,7 +9,7 @@ do_P8=1   # For now we can only do P8 and LHEF if we also do st4
 startingSeed=1
 numScripts=20
 bigLoops=10
-numst2=20
+numst2=100
 
 # Stage 1 - grids
 if [ $do_st1 -eq 1 ] ; then
@@ -124,6 +124,7 @@ fi
 
 # Stage 4 - event generation
 if [ $do_st4 -eq 1 ] ; then
+    ST4=""
     for i in `seq 1 $numScripts` ; do
 	cp ../scripts/st4.pbs `basename $PWD`-st4-$i.pbs
 
@@ -147,10 +148,37 @@ if [ $do_st4 -eq 1 ] ; then
 
 # Check whether we depend on previous stages
         if [ $do_st3 -eq 1 ] ; then
-            qsub -W depend=afterany:$ST3 `basename $PWD`-st4-$i.pbs
+	    if [ $i -eq 1 ] ; then
+		ST4=$(qsub -W depend=afterany:$ST3 `basename $PWD`-st4-$i.pbs)
+	    else
+		ST4=$ST4:$(qsub -W depend=afterany:$ST3 `basename $PWD`-st4-$i.pbs)
+	    fi
         else
-            qsub `basename $PWD`-st4-$i.pbs
+            if [ $i -eq 1 ] ; then
+		ST4=$(qsub `basename $PWD`-st4-$i.pbs)
+	    else
+		ST4=$ST4:$(qsub `basename $PWD`-st4-$i.pbs)
+	    fi
         fi
     done
+
+# Cleanup stages - merge all the files, rescale them so that we have doubly differential histograms, and write them in libtunes format
+
+    cp ../scripts/cleanup.sh .
+    cp ../scripts/libtunes/rescale_top.py .
+    cp ../scripts/libtunes/write_as_libtunes.py .
+    
+    switches="do_NLO do_LHEF do_P8"
+    for j in $switches ; do
+	if [ $((j)) -eq 1 ] ; then
+	    sed -i "s/$j=.*/$j=1/g" cleanup.sh
+	else
+	    sed -i "s/$j=.*/$j=0/g" cleanup.sh
+	fi
+    done
+    echo $ST4
+    qsub -W depend=afterany:$ST4 cleanup.sh
+
 fi
+
 

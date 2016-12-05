@@ -1,4 +1,4 @@
-# Program to take our top file, and write it in the libtunes format
+# Program to take our top file, and write it in the libtunes format
 import sys
 from decimal import Decimal
 import csv
@@ -21,6 +21,10 @@ out = open(file+"-libtunes","w")
 out.write("# pT, rapidity, xsection, MC error\n")
 out.write("x0\tx1\ttarget\terror\n")
 
+bin_low=0.0
+bin_high=0.0
+y_mid=0.0
+
 while True:
     x = f.readline() # Loop over lines in file
     if not x: break
@@ -29,7 +33,6 @@ while True:
 
     if line != []:
         line_to_output = "" # declare the line that we will output at the end
-        y_mid = 0.0 # declaring the middle of the y bins
         if line[-2] == 'index': # this is a title line
             hist_name = line[1]
             if "yH" in hist_name and "inf" not in hist_name and "ptj1" in hist_name: # Then it is a rapidity slice
@@ -49,10 +52,10 @@ while True:
                 y_mid = (bin_high + bin_low)/2.0
 # Next, we need to find the pt midpoints for each histogram
         elif "yH" in hist_name and "inf" not in hist_name and "ptj1" in hist_name:
-            pt_bin_low = float(line[0])
-            pt_bin_high = float(line[1])
-            xsec = float(line[2])
-            err = float(line[3])
+            pt_bin_low = convert_to_float(line[0])
+            pt_bin_high =  convert_to_float(line[1])
+            xsec = convert_to_float(line[2])
+            err = convert_to_float(line[3])
             pt_mid = (pt_bin_high + pt_bin_low)/2.0
             line_to_output = [str(pt_mid),str(y_mid),xsec,err]
             for i in range(2,4):

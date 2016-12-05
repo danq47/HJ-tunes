@@ -28,7 +28,7 @@ use-old-ubound 1  ! if 1 use norm of upper bounding function stored in pwgubound
 # Integration grid etc parameters
 ncall1        100000  		! number of calls for initializing the integration grid
 itmx1         1        		! MUST BE 1 FOR MY FILTERING TO WORK
-ncall2        100000  		! number of calls for computing the integral and finding upper bound
+ncall2        500000  		! number of calls for computing the integral and finding upper bound
 itmx2         1        		! MUST BE 1 FOR MY FILTERING TO WORK
 foldcsi       1       		! number of folds on csi integration
 foldy         1       		! number of folds on  y  integration
