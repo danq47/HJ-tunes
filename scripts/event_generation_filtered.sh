@@ -68,7 +68,7 @@ if [ $do_st2 -eq 1 ] ; then
             sed -i "s/do_NLOplots=.*/do_NLOplots=0/g" `basename $PWD`-st2-$i.pbs
         fi
 
-        sed -i "s/nScripts=.*/nScripts=$numScripts/g" `basename $PWD`-st2-$i.pbs
+        sed -i "s/nScripts=.*/nScripts=$numst2/g" `basename $PWD`-st2-$i.pbs
         sed -i "s/scriptNumber=1/scriptNumber=$i/g" `basename $PWD`-st2-$i.pbs
 	sed -i "s/scriptNumber-1)\ )\ +\ 1/scriptNumber-1)\ )\ +\ $startingSeed/g" `basename $PWD`-st2-$i.pbs
 # Check whether we depend on st1
@@ -176,7 +176,6 @@ if [ $do_st4 -eq 1 ] ; then
 	    sed -i "s/$j=.*/$j=0/g" cleanup.sh
 	fi
     done
-    echo $ST4
     qsub -W depend=afterany:$ST4 cleanup.sh
 
 fi
