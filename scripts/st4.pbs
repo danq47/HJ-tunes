@@ -119,7 +119,7 @@ cp $basedir/powheg.input      /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/powheg.input-save /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/pwhg_main         /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/lhef_analysis     /tmp/kh-$scriptNumber-`basename $basedir`/
-cp $basedir/main-PYTHIA-lhef  /tmp/kh-$scriptNumber-`basename $basedir`/
+#cp $basedir/main-PYTHIA-lhef  /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/main-PYTHIA8_31-lhef /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/main31.cmnd /tmp/kh-$scriptNumber-`basename $basedir`/
 cp $basedir/mergedata         /tmp/kh-$scriptNumber-`basename $basedir`/

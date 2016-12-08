@@ -88,7 +88,7 @@ done
 wait
 
 for i in `ls *.dat *.top *.log` ; do
-if [ -e ../$i ] ; then
+if [ -e $basedir/$i ] ; then
     echo "File $i exists in base directory - not copying";
 else
     echo "Copying $i to base directory";
@@ -97,7 +97,7 @@ fi
 done
 
 cd $basedir
-#rm -rf st3-$scriptNumber
+rm -rf st3-$scriptNumber
 
 if [ $scriptNumber -eq $nScripts ] ; then
 	(echo -n Ending   st3 ' ' ; date ) >> Timings/Timings-initialisation.txt
