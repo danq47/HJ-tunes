@@ -139,10 +139,10 @@ if [ $do_libtunes -eq 1 ] ; then
     cp -r rescaled_output libtunes_output
     cd libtunes_output
     cp $basedir/write_as_libtunes.py .
-    for i in `ls *.top-rescaled` ; do
+    for i in `ls *xsecs` ; do
 	python write_as_libtunes.py $i
     done
-    rm *.top-rescaled
+    rm *xsecs
 fi
 cd $basedir
 
