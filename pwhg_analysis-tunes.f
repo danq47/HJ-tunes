@@ -199,9 +199,9 @@ c     Analysis subroutine
       include 'pwhg_lhrwgt.h'
       real * 8     dsig0,dsig(7)
       integer      nweights
-      logical      iniwgts
-      data         iniwgts/.true./
-      save         iniwgts
+      logical      ini
+      data         ini/.true./
+      save         ini
       character*6  WHCPRG
       common/cWHCPRG/WHCPRG
       data         WHCPRG/'NLO   '/
@@ -221,36 +221,29 @@ c     Analysis subroutine
       common/bins/ pt_bins1,y_bins1,len_pt,len_y
       external     powheginput,lenocc
       logical      negative
-      
-      if (iniwgts) then
-         write(*,*) '*********************'
-         if(whcprg.eq.'NLO    ') then
-            write(*,*) ' NLO ANALYSIS      '
-            weights_num=0
-         elseif(WHCPRG.eq.'LHE    ') then
-            write(*,*) ' LHE ANALYSIS      '
-         elseif(WHCPRG.eq.'HERWIG ') then
-            write(*,*) ' HERWIG ANALYSIS   '
-         elseif(WHCPRG.eq.'PYTHIA ') then
-            write(*,*) ' PYTHIA ANALYSIS   '
-         elseif(WHCPRG.eq.'PYTHIA8') then
-            write(*,*) ' PYTHIA8 ANALYSIS   '
-         endif
-         write(*,*) '*********************'
-         if(weights_num.eq.0) then
-            call setupmulti(1)
+
+
+      if(ini) then
+         if(lhrwgt_nids.gt.0) then
+            call setupmulti(lhrwgt_nids)
+         elseif(weights_num.gt.0) then
+            call setupmulti(weights_num+1)
          else
-            call setupmulti(weights_num)
+            call setupmulti(1)
          endif
-         iniwgts=.false.
+         ini=.false.
       endif
-      
+
       dsig=0
-      if(weights_num.eq.0) then
+      if(lhrwgt_nids.gt.0) then
+         dsig(1:lhrwgt_nids)=lhrwgt_weights(1:lhrwgt_nids)
+      elseif(weights_num.gt.0) then
          dsig(1)=dsig0
+         dsig(2:weights_num+1)=weights_val(1:weights_num)
       else
-         dsig(1:weights_num)=weights_val(1:weights_num)
+         dsig(1)=dsig0
       endif
+
       if(sum(abs(dsig)).eq.0) return
       
 c     Initialise everything to zero
@@ -286,6 +279,7 @@ c     Total plots
       call getyetaptmass(ph,y,eta,pt,m)
       pt_higgs=pt
       y_higgs=y
+      
       call filld('sigmatot',0.5d0,dsig)
       call filld('H-pt',pt_higgs,dsig)
       call filld('H-y',y_higgs,dsig)
