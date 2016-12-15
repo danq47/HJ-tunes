@@ -9,7 +9,9 @@ ndns2         131       	! pdf for hadron 2 (mlm numbering)
 lhans1        261000     	! pdf set for hadron 1 (LHA numbering)
 lhans2        261000     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
-facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact 
+facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact
+renscfact_rad 1d0   		! same as above but for N3LO+NNLL RadISH code 
+facscfact_rad 1d0   		! same as above but for N3LO+NNLL RadISH code 
 
 maxseeds      5000
 #check_bad_st2 1
@@ -52,5 +54,13 @@ bmass_in_minlo    0		! turn off bmass MiNLO effects (see docs/mass-effects-NNLOP
 # Optional parameters
 testplots       1			! 1 = do NLO plots, 0 = don't
 bornktmin       0.26    	! Minimum transverse momentum if the Higgs at the underlying Born level
-storeinfo_rwgt  1   		! store info to allow for reweighting
-#flg_debug       1   		! store extra event info for debugging
+
+
+# reweighting parameters
+#flg_debug         1   		! store extra event info for debugging
+storeinfo_rwgt     1   		! store info to allow for reweighting
+tunes              0        ! do a "tunes" reweighting (1=yes, 0=no)
+
+lhrwgt_group_name  'tunes - scales: muR_pwg,muF_pwg,muR_rad,muF_rad'
+lhrwgt_id          'original'
+lhrwgt_dscr        'original POWHEG output'
