@@ -26,7 +26,7 @@ gfortran -o mergedata mergedata.f
 if [ $do_lhef -eq 1 ] ; then
     cd LHEF-output
     cp ../mergedata .
-    for i in `seq 1 49` ; do
+    for i in `seq 1 50` ; do
 	filesToCombine=`ls pwgLHEF_analysis-*-W$i.top`
 	if [ "$filesToCombine" = "" ] ; then
 	    echo "No LHEF W$i files found to merge."
@@ -58,7 +58,7 @@ fi
 if [ $do_p8 -eq 1 ] ; then
     cd PYTHIA8-output
     cp ../mergedata .
-    for i in `seq 1 49` ; do
+    for i in `seq 1 50` ; do
         filesToCombine=`ls pwgPOWHEG+PYTHIA8-output-*-W$i.top`
         if [ "$filesToCombine" = "" ] ; then
             echo "No Pythia8 W$i files found to merge."
