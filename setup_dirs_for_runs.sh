@@ -4,8 +4,8 @@ if [[ "$@" = "" ]] ; then
     echo "./setup_dirs_for_runs.sh dir1 dir2"
     echo "etc. for however many directories you want"
 else
-    make -j8 clean
     make -j8 veryclean
+    make -j8 clean
     make -j8 pwhg_main
     make -j8 lhef_analysis
     make -j8 main-PYTHIA8_31-lhef
