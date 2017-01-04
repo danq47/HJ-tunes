@@ -17,7 +17,7 @@ else
 	cp ../pwhg_main .
 	cp ../pwgseeds.dat .
 	cp ../lhef_analysis .
-	cp ../main31.cmnd .
+	cp ../PYTHIA8/main31.cmnd .
 	cp ../main-PYTHIA8_31-lhef .
 	cp ../scripts/event_generation_filtered.sh .
 	

@@ -61,7 +61,8 @@ PWD=$(shell pwd)
 OBJ=$(PWD)/obj-$(COMPILER)
 WDNAME=$(shell basename $(PWD))
 HJ=$(PWD)
-VPATH= ./:../:./Madlib/:./MODEL/:./DHELAS/:./Topmass/:$(OBJ)/
+PYTHIA8_DIR=$(PWD)/PYTHIA8
+VPATH= ./:../:./Madlib/:./MODEL/:./DHELAS/:./Topmass/:$(OBJ)/:$(PYTHIA8_DIR)/
 
 
 INCLUDE1=$(PWD)
