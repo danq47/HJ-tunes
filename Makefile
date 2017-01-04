@@ -66,10 +66,11 @@ VPATH= ./:../:./Madlib/:./MODEL/:./DHELAS/:./Topmass/:$(OBJ)/:$(PYTHIA8_DIR)/
 
 
 INCLUDE1=$(PWD)
+INCLUDE15=$(PWD)/modified_headers/
 INCLUDE2=$(shell dirname $(PWD))/include
 INCLUDE3=$(PWD)/MCFM_Include 
 INCLUDE4=$(PWD)/Topmass 
-FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4)
+FF=$(F77) $(FFLAGS) $(FPE) $(OPT) $(DEBUG) -I$(INCLUDE1) -I$(INCLUDE15) -I$(INCLUDE2) -I$(INCLUDE3) -I$(INCLUDE4)
 
 LIBFILES=$(shell  for dir in $(HJ)/Madlib $(HJ)/MODEL $(HJ)/DHELAS ; do cd $$dir ; echo *.[fF] ' ' | sed 's/[fF] /o /g' ; cd .. ; done  )
 
