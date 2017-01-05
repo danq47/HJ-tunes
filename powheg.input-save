@@ -1,5 +1,5 @@
 # Higgs + Jet production parameters
-numevts       10000			! Number of events to generate
+numevts       25000			! Number of events to generate (125k ~ 20 hours = 80 hours cpu time
 ih1           1				! hadron 1 (1 for protons, -1 for antiprotons)
 ih2           1				! hadron 2 (1 for protons, -1 for antiprotons)
 ebeam1        6500d0      	! energy of beam 1
@@ -10,8 +10,8 @@ lhans1        261000     	! pdf set for hadron 1 (LHA numbering)
 lhans2        261000     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
 facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact
-renscfact_rad 1d0   		! same as above but for N3LO+NNLL RadISH code 
-facscfact_rad 1d0   		! same as above but for N3LO+NNLL RadISH code 
+renscfact_mrt 1d0   		! same as above but for N3LO+NNLL RadISH code 
+facscfact_mrt 1d0   		! same as above but for N3LO+NNLL RadISH code 
 
 maxseeds      5000
 #check_bad_st2 1
@@ -39,13 +39,13 @@ nubound       1000000    	! number of bbarra calls to setup norm of upper boundi
 
 # uncomment the following three options for parallel runs
 manyseeds      1
-parallelstage  3
+parallelstage  1
 xgriditeration 1
 
 # MiNLO parameters
 minlo             1		! default 0, set to 1 to use minlo
 minlo_jve         1		! use pT of the hardest jet in Sudakov (rather than pT_H)
-minlo_deltaR      1		! MiNLO clustering radius
+minlo_deltaR      0.4		! MiNLO clustering radius
 factsc2min        2       	! at this value the factorization scale is frozen (neede with minlo)
 sudscalevar       1     	! (default 1) scale variation also in Sudakov form factors in minlo 
 quarkmasseffects  0		! turn off quark mass effects (this, and bmass below off by default)

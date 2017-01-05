@@ -14,7 +14,8 @@
       integer k
       integer gen_seed,gen_n1,gen_n2
       common/cgenrand/gen_seed,gen_n1,gen_n2
-      real * 8 newweight,y,eta,pt,mass,yhiggs,ptj1,kren,kfac
+      real * 8 newweight,y,eta,pt,mass,H_y,H_pt
+      real * 8 kren_pwg, kfac_pwg, kren_mrt, kfac_mrt ! KmuR and KmuF for POWHEG and MRT codes respectively
       logical pwhg_isfinite
       external pwhg_isfinite
       character * 3 whichpdfpk
@@ -32,13 +33,6 @@
          newweight=rad_btilde_arr(rad_ubornidx)*
      1        rad_btilde_sign(rad_ubornidx)
 
-         if(flg_tunes) then
-            call getyetaptmass(pup(:,3),yhiggs,eta,pt,mass)
-            call getyetaptmass(pup(:,4),y,eta,ptj1,mass)
-            kren = powheginput("#renscfactrad")
-            kfac = powheginput("#facscfactrad")
-            newweight = newweight * tune_reweight(yhiggs,ptj1,kren,kfac)
-         endif
 
          if(flg_fullrwgt) then
             call fullrwgt(newweight)
@@ -54,6 +48,19 @@
      $        rad_type
          call exit(-1)
       endif
+
+c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
+      if(flg_tunes) then
+         call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+         kren_pwg = powheginput("#renscfact")
+         kfac_pwg = powheginput("#facscfact")
+         kren_mrt = powheginput("#renscfact_mrt")
+         kfac_mrt = powheginput("#facscfact_mrt")
+         newweight = newweight * tune_reweight(H_y, H_pt,
+     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
+      endif
+c DQ end modification
+
 
       if(.not.pwhg_isfinite(newweight)) newweight=0d0
       write(string,*) '#new weight,renfact,facfact,pdf1,pdf2',
