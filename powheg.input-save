@@ -10,8 +10,8 @@ lhans1        261000     	! pdf set for hadron 1 (LHA numbering)
 lhans2        261000     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
 facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact
-renscfact_mrt 1d0   		! same as above but for N3LO+NNLL RadISH code 
-facscfact_mrt 1d0   		! same as above but for N3LO+NNLL RadISH code 
+renscfact_mrt 1d0   		! same as above but for NNLO+NNLL MRT code 
+facscfact_mrt 1d0   		! same as above but for NNLO+NNLL MRT code 
 
 maxseeds      5000
 #check_bad_st2 1
