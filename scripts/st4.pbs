@@ -200,28 +200,28 @@ do
 		sed -i "s/facscfact_mrt .*/facscfact_mrt $facscfact_mrt/g" powheg.input
 		sed -i "s/renscfact_mrt .*/renscfact_mrt $renscfact_mrt/g" powheg.input
 		sed -i "s/lhrwgt_id .*/lhrwgt_id \'muR_pwg = $renscfact, muF_pwg = $facscfact, muR_mrt = $renscfact_mrt, muF_mrt = $facscfact_mrt\'/g" powheg.input
-        sed -i "s/lhrwgt_dscr .*/lhrwgt_dscr \'tunes reweighted with KRp=$muRp,KFp=$muFp,KRr=$muRr,KFr=$muFr\'/g" powheg.input
+        	sed -i "s/lhrwgt_dscr .*/lhrwgt_dscr \'tunes reweighted with KRp=$muRp,KFp=$muFp,KRr=$muRr,KFr=$muFr\'/g" powheg.input
     	
-    	for i in `seq $startSeed $endSeed`
-    	do
-        	ch=`char $i`
+		for i in `seq $startSeed $endSeed`
+    		do
+			ch=`char $i`
 
-        	./pwhg_main <<EOF > run-rwgt-$i.log 2>&1 &
+        		./pwhg_main <<EOF > run-rwgt-$i.log 2>&1 &
 $i
 pwgevents-$ch.lhe
 EOF
             
-    	done
+		done
 
-    	wait
+    		wait
         
-    	for i in `seq $startSeed $endSeed`
+		for i in `seq $startSeed $endSeed`
    		do
-        	ch=`char $i`
-        	\mv -f pwgevents-rwgt-$ch.lhe pwgevents-$ch.lhe 
+			ch=`char $i`
+        		\mv -f pwgevents-rwgt-$ch.lhe pwgevents-$ch.lhe 
         
-    	done
-    done
+		done
+	done
 done
     
 
