@@ -1,4 +1,4 @@
-c dummy subroutine to take in y_higgs and ptj1, and give an output weight.
+c dummy subroutine to take in p_T and y for the Higgs, and the 4 scale variation factors, and give an output weight.
 c Later, we will use something like this to link to SC's interpolating function,
 c but for now I'm just trying to see where it fits into the code
       function tune_reweight(y_h,pt_h,renscfact_pwg,facscfact_pwg,
