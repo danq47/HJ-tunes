@@ -49,6 +49,19 @@
          call exit(-1)
       endif
 
+c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
+      if(flg_tunes) then
+         call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+         kren_pwg = powheginput("#renscfact")
+         kfac_pwg = powheginput("#facscfact")
+         kren_mrt = powheginput("#renscfact_mrt")
+         kfac_mrt = powheginput("#facscfact_mrt")
+         newweight = newweight * tune_reweight(H_y, H_pt,
+     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
+      endif
+c DQ end modification
+
+
       if(.not.pwhg_isfinite(newweight)) newweight=0d0
       write(string,*) '#new weight,renfact,facfact,pdf1,pdf2',
      1        xwgtup*newweight/rad_currentweight,st_renfact,
