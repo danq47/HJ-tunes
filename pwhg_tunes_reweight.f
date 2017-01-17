@@ -11,7 +11,7 @@ c but for now I'm just trying to see where it fits into the code
 # here to get the reweighting. For now this is just a placeholder where
 # we reweight by 1
 
-      tune_reweight = 1.0
+      tune_reweight = 1.1
       if(renscfact_mrt.gt.1.9) then
          tune_reweight = tune_reweight + 0.1
       elseif(renscfact_mrt.lt.0.6) then
@@ -23,5 +23,4 @@ c but for now I'm just trying to see where it fits into the code
       elseif(facscfact_mrt.lt.0.6) then
          tune_reweight = tune_reweight + 0.4
       endif
-
       end

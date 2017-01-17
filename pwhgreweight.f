@@ -49,19 +49,6 @@
          call exit(-1)
       endif
 
-c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
-      if(flg_tunes) then
-         call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
-         kren_pwg = powheginput("#renscfact")
-         kfac_pwg = powheginput("#facscfact")
-         kren_mrt = powheginput("#renscfact_mrt")
-         kfac_mrt = powheginput("#facscfact_mrt")
-         newweight = newweight * tune_reweight(H_y, H_pt,
-     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
-      endif
-c DQ end modification
-
-
       if(.not.pwhg_isfinite(newweight)) newweight=0d0
       write(string,*) '#new weight,renfact,facfact,pdf1,pdf2',
      1        xwgtup*newweight/rad_currentweight,st_renfact,
@@ -538,6 +525,7 @@ c     write(iunout,'(a)') trim(string0)
       subroutine printrwghthdr(iun)
       implicit none
       include 'pwhg_lhrwgt.h'
+      include 'pwhg_flg.h'
       INTEGER IUN
       if(lhrwgt_id.ne.' ') then
 c     write(iun,'(a)') '<initrwgt>'
@@ -559,6 +547,14 @@ c     1              //trim(lhrwgt_group_name)//"'>"
          endif
          call pwhg_io_write(iun,"<weight id='"//trim(lhrwgt_id)
      1       //"'> "//trim(lhrwgt_descr)//" </weight>")
+
+c DQ mod start here - manually put in the tunes reweight
+         if(flg_tunes) then 
+            call pwhg_io_write(iun,"<weight id='"//'tunes'
+     1          //"'> "//trim(lhrwgt_descr)//" </weight>")
+         endif
+c DQ mod end here
+
 c         write(iun,'(a)') "<weight id='"//trim(lhrwgt_id)
 c     1       //"'> "//trim(lhrwgt_descr)//" </weight>"
          if(lhrwgt_group_name.ne.' ') then
@@ -576,9 +572,40 @@ c         write(iun,'(a)') "</initrwgt>"
       double precision weight
       character(len=300) string
       include 'pwhg_lhrwgt.h'
+
+c DQ declare and include
+      include 'pwhg_flg.h'
+      include 'LesHouches.h'
+      real * 8 powheginput,tune_reweight
+      real * 8 newweight,y,eta,pt,mass,H_y,H_pt
+      real * 8 kren_pwg, kfac_pwg, kren_mrt, kfac_mrt ! KmuR and KmuF for POWHEG and MRT codes respectively
+      external powheginput,tune_reweight
+c DQ end mod
+
       write(string,'(a,e16.9,a)')"<wgt id='"//trim(lhrwgt_id)//"'> ",
      1     weight,' </wgt>'
       call pwhg_io_write(nlf,trim(string))
+
+c DQ mod - add in tunes reweighting automatically
+      if(flg_tunes) then
+
+         call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+
+         kren_pwg = powheginput("#renscfact")
+         kfac_pwg = powheginput("#facscfact")
+         kren_mrt = powheginput("#renscfact_mrt")
+         kfac_mrt = powheginput("#facscfact_mrt")
+
+         newweight = weight * tune_reweight(H_y, H_pt,
+     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
+
+         write(string,'(a,e16.9,a)')"<wgt id='"//'tunes'//"'>",
+     1     newweight,' </wgt>'
+         call pwhg_io_write(nlf,trim(string))
+
+      endif
+c DQ mod end
+
       end
 c From here to the end of file are the subroutines needed for full reweighting,
 c that also includes the effect of the change in pdf's in the hardest radiation
