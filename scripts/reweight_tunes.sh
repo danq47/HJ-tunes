@@ -1,16 +1,21 @@
 # script to reweight all of our events with tunes reweighting and scale variation
 
+###############################################################
+#                                                             #
+#                                                             #
+tarred_events=0 # 1 if events are in tarred format, 0 if not  #
+#                                                             #
+#                                                             #
+###############################################################
 if [ -e pwgevents.lhe ] ; then
     manyseeds=0
 else
     manyseeds=1
 fi
 
-tarred_events=0 # 1 if events are in tarred format, 0 if not
-
 if [ $tarred_events -eq 1 ] ; then # we will need to untar them
     for event_file in *.lhe.tar.gz ; do
-	tar -xvzf $event_file 
+    tar -xvzf $event_file 
     done
 fi
 
@@ -41,7 +46,7 @@ do
 
 
 # Turn on "tunes"
-    cat  powheg.input-save | sed "s/parallelstage.*/parallelstage 4/ ; s/storeinfo_rwgt/compute_rwgt/ ; s/tunes.*/tunes 1/ " > powheg.input
+    sed -i "s/parallelstage.*/parallelstage 4/ ; s/storeinfo_rwgt .*/compute_rwgt 1/ ; s/tunes.*/tunes 1/ " powheg.input
     sed -i "s/facscfact .*/facscfact $facscfact/g" powheg.input
     sed -i "s/renscfact .*/renscfact $renscfact/g" powheg.input
     sed -i "s/lhrwgt_group_name .*/lhrwgt_group_name \'tunes reweight with POWHEG scales muR = $renscfact, muF = $facscfact\'/g" powheg.input
@@ -59,39 +64,41 @@ do
             6) facscfact_mrt=1.0 ; renscfact_mrt=2.0 ;;
             7) facscfact_mrt=2.0 ; renscfact_mrt=2.0 ;;
         esac
-	
+    
         sed -i "s/facscfact_mrt .*/facscfact_mrt $facscfact_mrt/g" powheg.input
         sed -i "s/renscfact_mrt .*/renscfact_mrt $renscfact_mrt/g" powheg.input
         sed -i "s/lhrwgt_id .*/lhrwgt_id \'muR_pwg = $renscfact, muF_pwg = $facscfact, muR_mrt = $renscfact_mrt, muF_mrt = $facscfact_mrt\'/g" powheg.input
         sed -i "s/lhrwgt_dscr .*/lhrwgt_dscr \'tunes reweighted with KRp=$muRp,KFp=$muFp,KRr=$muRr,KFr=$muFr\'/g" powheg.input
-	
-	counter=$((counter+1))
+    
+        counter=$((counter+1))
 
 
 # Run the reweighting program with modified powheg.input files
 
-    if [ $manyseeds -eq 0 ] ; then
-        ./pwhg_main > run-rwgt.log
-        mv pwgevents-rwgt.lhe pwgevents.lhe
-    else
+        if [ $manyseeds -eq 0 ] ; then
+            ./pwhg_main > run-rwgt.log
+            mv pwgevents-rwgt.lhe pwgevents.lhe
+            (echo -n ' ') >> Timings-rwgt.txt
+            (echo -n Reweighting events with weight number $counter of 49 ; date) >> Timings-rwgt.txt
+        else
 
-	    seed_list=`ls *.lhe | sed "s/pwgevents-//" | sed "s/.lhe//" `
-	    for seed in $seed_list ; do
-	        (echo -n ' ') >> Timings-rwgt.txt
-	        (echo -n Reweighting event file $seed with weight number $counter of 49; date) >> Timings-rwgt.txt
-	        ./pwhg_main <<EOF > run-rwgt-$seed.log 
+            seed_list=`ls *.lhe | sed "s/pwgevents-//" | sed "s/.lhe//" `
+            for seed in $seed_list ; do
+                (echo -n ' ') >> Timings-rwgt.txt
+                (echo -n Reweighting event file $seed with weight number $counter of 49 ; date) >> Timings-rwgt.txt
+                ./pwhg_main <<EOF > run-rwgt-$seed.log 
 $seed
 pwgevents-$seed.lhe
 EOF
-	    
-	       mv pwgevents-rwgt-$seed.lhe pwgevents-$seed.lhe
+        
+                mv pwgevents-rwgt-$seed.lhe pwgevents-$seed.lhe
 
-	    done
+            done
 
-    fi
+        fi
 
     done
-done	
+done    
 
 if [ -e log-files ] ; then
     mv run-rwgt-*.log log-files/

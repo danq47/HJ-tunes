@@ -9,6 +9,9 @@
       include 'pwhg_pdf.h'
       include 'pwhg_rad.h'
       include 'pwhg_flg.h'
+c DQ include
+      include 'pwhg_lhrwgt.h'
+c DQ end mod
       real * 8 powheginput
       external powheginput
       integer i1,n1,n2
@@ -107,7 +110,24 @@ c and produce a new LH file with updated weights
 
 c DQ mod - if tunes is on and we haven't selected to do reweighting then we have to put it on manually
       if(flg_tunes) then
-         if(.not.flg_reweight.and..not.flg_newweight) flg_reweight = .true.
+         if(.not.flg_reweight.and..not.flg_newweight) then
+            call powheginputstring("#lhrwgt_id",lhrwgt_id) 
+            if(lhrwgt_id.ne.'') then
+               flg_reweight = .true. ! if we have an lhrwgt_id, but have set storeinfo_rwgt to 0, then we manually turn on storeinfo_rwgt mode here
+            else
+               write(*,*) '*************************'
+               write(*,*) 'ERROR'
+               write(*,*) 'program run in "tunes" mode without'
+               write(*,*) 'specifying lhrwgt_id in powheg.input'
+               write(*,*) 
+               write(*,*) 'Please enter this information'
+               write(*,*) 'into the input file and run again'
+               write(*,*)
+               write(*,*) 'Exiting ...'
+               call pwhg_exit(-1)
+            endif
+            
+         endif
       endif
 c DQ end  mod
       

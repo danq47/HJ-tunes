@@ -7,9 +7,8 @@ c but for now I'm just trying to see where it fits into the code
       real * 8 y_h, pt_h, tune_reweight
       real * 8 renscfact_pwg,facscfact_pwg,renscfact_mrt,facscfact_mrt ! KmuR and KmuF for POWHEG and MRT respectively
 
-# when we get the interpolating function from Stefano we can put it
-# here to get the reweighting. For now this is just a placeholder where
-# we reweight by 1
+c when we get the interpolating function from Stefano we can put it
+c here to get the reweighting. For now this is just a placeholder
 
       tune_reweight = 1.1
       if(renscfact_mrt.gt.1.9) then
