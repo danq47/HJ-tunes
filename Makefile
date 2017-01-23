@@ -4,7 +4,7 @@ COMPILER=gfortran
 FC=$(COMPILER)
 ## Choose PDF: native,lhapdf
 ## LHAPDF package has to be installed separately
-PDF=lhapdf
+PDF=native
 ## ANALYSIS: none, BnJ, HnJ, alt, NNLOPS
 ##           the first 4 analyses require the FASTJET package, that has to be 
 ##           installed separately (see below)
@@ -128,7 +128,8 @@ ifeq ("$(ANALYSIS)","tmp")
 ##To include Fastjet configuration uncomment the following lines. 
 FASTJET_CONFIG=$(shell which fastjet-config)
 #FASTJET_CONFIG=~/lib/fastjet242/bin/fastjet-config
-LIBSFASTJET += $(shell $(FASTJET_CONFIG) --libs --plugins ) -lstdc++
+# LIBSFASTJET += $(shell $(FASTJET_CONFIG) --libs --plugins ) -lstdc++
+LIBSFASTJET += $(shell $(FASTJET_CONFIG) --libs --plugins --rpath=no) -lstdc++ -lc++
 FJCXXFLAGS+= $(shell $(FASTJET_CONFIG) --cxxflags)
 PWHGANAL=pwhg_bookhist-multi.o pwhg_analysis-tmp.o fastjetfortran.o pwhg_tunes_reweight.o
 ## Also add required Fastjet drivers to PWHGANAL (examples are reported)#PWHGANAL+= fastjetsisconewrap.o fastjetktwrap.o fastjetCDFMidPointwrap.o fastjetD0RunIIConewrap.o fastjetfortran.o
@@ -177,7 +178,8 @@ PWHGANAL=pwhg_bookhist-multi.o pwhg_analysis-pheno_2.o fastjetfortran.o \
          auxiliary.o get_hdamp.o
 endif
 
-PYTHIA8LOCATION=/unix/theory/quill/POWHEG-RES-INSTALL/pythia8185
+#PYTHIA8LOCATION=/unix/theory/quill/POWHEG-RES-INSTALL/pythia8185
+PYTHIA8LOCATION=/Users/Dan/code/pythia8185
 FJCXXFLAGS+=-I$(PYTHIA8LOCATION)/include
 FJCXXFLAGS+=-I$(PYTHIA8LOCATION)/include/Pythia8
 LIBPYTHIA8=-L$(PYTHIA8LOCATION)/lib/archive -lpythia8 -lstdc++

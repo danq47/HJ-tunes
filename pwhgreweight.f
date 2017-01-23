@@ -50,6 +50,19 @@
       endif
 
 c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
+      
+      call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+      write(*,*)
+      write(*,*) "********************************"
+      write(*,*) "H_pt before showering:",H_pt
+      write(*,*) "H_y before showering:",H_y
+      write(*,*)
+      call main_pythia8
+      write(*,*) "H_pt after showering:",H_pt
+      write(*,*) "H_y after showering:",H_y
+      write(*,*) "********************************"
+      write(*,*)
+
       if(flg_tunes) then
          call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
          kren_pwg = powheginput("#renscfact")
