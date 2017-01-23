@@ -47,7 +47,6 @@ if [ $do_st1 -eq 1 ] ; then
             XG2=$XG2:$(qsub -W depend=afterany:$XG1F `basename $PWD`-xg2-$i.pbs)
         fi
     done
-fi
 
 # filter out bad xg2 files
 
@@ -55,6 +54,8 @@ fi
     cp ../scripts/filtering_scripts/filter_xg2.sh .
     cp ../scripts/filtering_scripts/filter_bad_xg2.py .
     XG2F=$(qsub -W depend=afterany:$XG2 filter_xg2.sh)
+
+fi
 
 # Stage 2 - NLO and btilde upper bound
 if [ $do_st2 -eq 1 ] ; then
