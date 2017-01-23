@@ -170,17 +170,17 @@ c     pt-j1 and pt-H cut into y_H bins
          ls1=lenocc(s1(kxx))    ! trim down plot suffix
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
-            call bookup('ptH-'//'minus-inf-yH-'//tmp,len_pt - 2,pt_bins1)
+            call bookup('H-pt-'//'minus-inf-yH-'//tmp,len_pt - 2,pt_bins1)
             call bookup('ptj1-'//'minus-inf-yH-'//tmp,len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//'--inf-yH-'//tmp,len_pt - 1,pt_bins1)
             tmp2=tmp
          elseif(kxx.gt.1.and.kxx.lt.len_y) then ! This includes all the different cuts in the middle
-            call bookup('ptH-'//s1(kxx)(1:ls1),len_pt - 2,pt_bins1)
+            call bookup('H-pt-'//s1(kxx)(1:ls1),len_pt - 2,pt_bins1)
             call bookup('ptj1-'//s1(kxx)(1:ls1),len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//s1(kxx)(1:ls1),len_pt - 1,pt_bins1)
             tmp2=tmp
          elseif(kxx.eq.len_y) then ! and this cuts Y-higgs > highest bin edge
-            call bookup('ptH-'//tmp2(1:t2)//'-yH-inf',len_pt - 2,pt_bins1)
+            call bookup('H-pt-'//tmp2(1:t2)//'-yH-inf',len_pt - 2,pt_bins1)
             call bookup('ptj1-'//tmp2(1:t2)//'-yH-inf',len_pt - 2,pt_bins1)
 !     call bookup('ptj2'//tmp2(1:t2)//'-yH-inf',len_pt - 1,pt_bins1)
          endif
@@ -199,9 +199,9 @@ c     Analysis subroutine
       include 'pwhg_lhrwgt.h'
       real * 8     dsig0,dsig(7)
       integer      nweights
-      logical      ini
-      data         ini/.true./
-      save         ini
+      logical      iniwgts
+      data         iniwgts/.true./
+      save         iniwgts
       character*6  WHCPRG
       common/cWHCPRG/WHCPRG
       data         WHCPRG/'NLO   '/
@@ -221,29 +221,36 @@ c     Analysis subroutine
       common/bins/ pt_bins1,y_bins1,len_pt,len_y
       external     powheginput,lenocc
       logical      negative
-
-
-      if(ini) then
-         if(lhrwgt_nids.gt.0) then
-            call setupmulti(lhrwgt_nids)
-         elseif(weights_num.gt.0) then
-            call setupmulti(weights_num+1)
-         else
-            call setupmulti(1)
+      
+      if (iniwgts) then
+         write(*,*) '*********************'
+         if(whcprg.eq.'NLO    ') then
+            write(*,*) ' NLO ANALYSIS      '
+            weights_num=0
+         elseif(WHCPRG.eq.'LHE    ') then
+            write(*,*) ' LHE ANALYSIS      '
+         elseif(WHCPRG.eq.'HERWIG ') then
+            write(*,*) ' HERWIG ANALYSIS   '
+         elseif(WHCPRG.eq.'PYTHIA ') then
+            write(*,*) ' PYTHIA ANALYSIS   '
+         elseif(WHCPRG.eq.'PYTHIA8') then
+            write(*,*) ' PYTHIA8 ANALYSIS   '
          endif
-         ini=.false.
+         write(*,*) '*********************'
+         if(weights_num.eq.0) then
+            call setupmulti(1)
+         else
+            call setupmulti(weights_num)
+         endif
+         iniwgts=.false.
       endif
-
+      
       dsig=0
-      if(lhrwgt_nids.gt.0) then
-         dsig(1:lhrwgt_nids)=lhrwgt_weights(1:lhrwgt_nids)
-      elseif(weights_num.gt.0) then
+      if(weights_num.eq.0) then
          dsig(1)=dsig0
-         dsig(2:weights_num+1)=weights_val(1:weights_num)
       else
-         dsig(1)=dsig0
+         dsig(1:weights_num)=weights_val(1:weights_num)
       endif
-
       if(sum(abs(dsig)).eq.0) return
       
 c     Initialise everything to zero
@@ -279,7 +286,6 @@ c     Total plots
       call getyetaptmass(ph,y,eta,pt,m)
       pt_higgs=pt
       y_higgs=y
-      
       call filld('sigmatot',0.5d0,dsig)
       call filld('H-pt',pt_higgs,dsig)
       call filld('H-y',y_higgs,dsig)
@@ -312,21 +318,21 @@ c     Transverse momentum plots split into yHiggs bins
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
             if(y_higgs.lt.y_bins1(kxx)) then
-               call filld('ptH-'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
+               call filld('H-pt-'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
                call filld('ptj1-'//'minus-inf-yH-'//tmp,ktj(1),dsig)
 !     call filld('ptj2'//'--inf-yH-'//tmp,ktj(2),dsig)
             endif
             tmp2=tmp
          elseif(kxx.gt.1.and.kxx.lt.len_y) then ! This includes all the different cuts in the middle
             if(y_higgs.gt.y_bins1(kxx - 1).and.y_higgs.lt.y_bins1(kxx)) then	
-               call filld('ptH-'//s1(kxx)(1:ls1),pt_higgs,dsig)
+               call filld('H-pt-'//s1(kxx)(1:ls1),pt_higgs,dsig)
                call filld('ptj1-'//s1(kxx)(1:ls1),ktj(1),dsig)
 !     call filld('ptj2'//s1(kxx)(1:ls1),ktj(2),dsig)
             endif
             tmp2=tmp
          elseif(kxx.eq.len_y) then ! and this cuts Y-higgs > highest bin edge
             if(y_higgs.gt.y_bins1(kxx)) then
-               call filld('ptH-'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
+               call filld('H-pt-'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
                call filld('ptj1-'//tmp2(1:t2)//'-yH-inf',ktj(1),dsig)
 !     call filld('ptj2'//tmp2(1:t2)//'-yH-inf',ktj(2),dsig)
             endif

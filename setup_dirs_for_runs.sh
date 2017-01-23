@@ -4,8 +4,8 @@ if [[ "$@" = "" ]] ; then
     echo "./setup_dirs_for_runs.sh dir1 dir2"
     echo "etc. for however many directories you want"
 else
-    make -j8 veryclean
     make -j8 clean
+    make -j8 veryclean
     make -j8 pwhg_main
     make -j8 lhef_analysis
     make -j8 main-PYTHIA8_31-lhef
@@ -17,7 +17,7 @@ else
 	cp ../pwhg_main .
 	cp ../pwgseeds.dat .
 	cp ../lhef_analysis .
-	cp ../PYTHIA8/main31.cmnd .
+	cp ../main31.cmnd .
 	cp ../main-PYTHIA8_31-lhef .
 	cp ../scripts/event_generation_filtered.sh .
 	

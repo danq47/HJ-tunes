@@ -54,8 +54,8 @@ c DQ - if we are doing a tunes reweight, call the function and multiply the weig
          call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
          kren_pwg = powheginput("#renscfact")
          kfac_pwg = powheginput("#facscfact")
-         kren_mrt = powheginput("#renscfact_mrt")
-         kfac_mrt = powheginput("#facscfact_mrt")
+         kren_mrt = powheginput("#rensc_fact_mrt")
+         kfac_mrt = powheginput("#facsc_fact_mrt")
          newweight = newweight * tune_reweight(H_y, H_pt,
      1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
       endif

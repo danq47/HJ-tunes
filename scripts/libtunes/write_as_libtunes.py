@@ -1,5 +1,4 @@
-# Program to take our rescaled .top file (which now contains doubly
-# differential cross sections), and write it in the libtunes format
+# Program to take our top file, and write it in the libtunes format
 import sys
 from decimal import Decimal
 import csv
@@ -36,7 +35,7 @@ while True:
         line_to_output = "" # declare the line that we will output at the end
         if line[-2] == 'index': # this is a title line
             hist_name = line[1]
-            if "yH" in hist_name and "inf" not in hist_name and "ptH" in hist_name: # Then it is a rapidity slice
+            if "yH" in hist_name and "inf" not in hist_name and "ptj1" in hist_name: # Then it is a rapidity slice
                 hist_name = hist_name.split("-")
                 first = True # this is to get the lower and upper bin edges
                 for i in hist_name: # this for loop finds the y slice midpoints
@@ -52,7 +51,7 @@ while True:
                                 bin_high = -1.0 * bin_high
                 y_mid = (bin_high + bin_low)/2.0
 # Next, we need to find the pt midpoints for each histogram
-        elif "yH" in hist_name and "inf" not in hist_name and "ptH" in hist_name:
+        elif "yH" in hist_name and "inf" not in hist_name and "ptj1" in hist_name:
             pt_bin_low = convert_to_float(line[0])
             pt_bin_high =  convert_to_float(line[1])
             xsec = convert_to_float(line[2])
