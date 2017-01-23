@@ -6,8 +6,8 @@ ebeam1        6500d0      	! energy of beam 1
 ebeam2        6500d0      	! energy of beam 2
 ndns1         131       	! pdf for hadron 1 (mlm numbering)
 ndns2         131       	! pdf for hadron 2 (mlm numbering)
-lhans1        261000     	! pdf set for hadron 1 (LHA numbering)
-lhans2        261000     	! pdf set for hadron 2 (LHA numbering)
+lhans1        91500     	! pdf set for hadron 1 (LHA numbering)
+lhans2        91500     	! pdf set for hadron 2 (LHA numbering)
 renscfact     1d0   		! (default 1d0) ren scale factor: muren  = muref * renscfact 
 facscfact     1d0   		! (default 1d0) fac scale factor: mufact = muref * facscfact
 rensc_fact_mrt 1d0   		! same as above but for NNLO+NNLL MRT code 
@@ -45,7 +45,7 @@ xgriditeration 1
 # MiNLO parameters
 minlo             1		! default 0, set to 1 to use minlo
 minlo_jve         1		! use pT of the hardest jet in Sudakov (rather than pT_H)
-minlo_deltaR      1		! MiNLO clustering radius
+minlo_deltaR      0.4		! MiNLO clustering radius
 factsc2min        2       	! at this value the factorization scale is frozen (neede with minlo)
 sudscalevar       1     	! (default 1) scale variation also in Sudakov form factors in minlo 
 quarkmasseffects  0		! turn off quark mass effects (this, and bmass below off by default)
@@ -61,6 +61,6 @@ bornktmin       0.26    	! Minimum transverse momentum if the Higgs at the under
 storeinfo_rwgt     1   		! store info to allow for reweighting
 tunes              0        ! do a "tunes" reweighting (1=yes, 0=no)
 
-lhrwgt_group_name  'tunes - scales: muR_pwg,muF_pwg,muR_rad,muF_rad'
+lhrwgt_group_name  'POWHEG scale variations  muR_pwg,muF_pwg'
 lhrwgt_id          'original'
 lhrwgt_dscr        'original POWHEG output'
