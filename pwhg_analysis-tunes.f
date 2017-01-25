@@ -151,7 +151,7 @@ C       y_bins1(28)=5d0
       y_bins1(7)=  1.2d0
       y_bins1(8)=  2.4d0
       y_bins1(9)=  4.0d0
-      y_bins1(10)=  4.0d0
+      y_bins1(10)= 4.0d0
 
       len_pt1=0 
       len_pt2=0                  ! length of pt and y bins array 
@@ -237,10 +237,10 @@ c     Analysis subroutine
       real * 8     ptj1,ptj2,pt_test,pt_higgs,y_higgs
       real * 8     y,eta,pt,m
       real * 8     powheginput
-      real * 8 	 pt_bins1(100),y_bins1(100)
-      integer      len_pt,len_y,lenocc,t1,t2,ls1
+      real * 8 	 pt_bins1(300),y_bins1(300),pt_bins2(300)
+      integer      len_pt1,len_pt2,len_y,lenocc,t1,t2,ls1
       character*60 s1(100),tmp,tmp2
-      common/bins/ pt_bins1,y_bins1,len_pt,len_y
+      common/bins/ pt_bins1,y_bins1,len_pt1,len_pt2,len_y
       external     powheginput,lenocc
       logical      negative
       
@@ -311,10 +311,10 @@ c    Total plots
       call filld('sigmatot',0.5d0,dsig)
       call filld('hpt-5GeV',pt_higgs,dsig)
       call filld('hpt-2GeV',pt_higgs,dsig)
-      
+
 c    Transverse momentum plots split into yHiggs bins
       do kxx=1,len_y
-         
+
          negative = .false.
          if(y_bins1(kxx).lt.-1d-5) negative = .true.
 
@@ -332,20 +332,20 @@ c    Transverse momentum plots split into yHiggs bins
          
          if(kxx.eq.1) then      ! initial cut - take from Y-higgs=-inft up to the lowest bin edge
             if(y_higgs.lt.y_bins1(kxx)) then
-               call filld('pth-5GeV'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
-               call filld('pth-2GeV'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
+               call filld('pth-5GeV-'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
+               call filld('pth-2GeV-'//'minus-inf-yH-'//tmp,pt_higgs,dsig)
             endif
             tmp2=tmp
          elseif(kxx.gt.1.and.kxx.lt.len_y) then ! This includes all the different cuts in the middle
             if(y_higgs.gt.y_bins1(kxx - 1).and.y_higgs.lt.y_bins1(kxx)) then	
-               call filld('pth-5GeV'//s1(kxx)(1:ls1),pt_higgs,dsig)
-               call filld('pth-2GeV'//s1(kxx)(1:ls1),pt_higgs,dsig)
+               call filld('pth-5GeV-'//s1(kxx)(1:ls1),pt_higgs,dsig)
+               call filld('pth-2GeV-'//s1(kxx)(1:ls1),pt_higgs,dsig)
             endif
             tmp2=tmp
          elseif(kxx.eq.len_y) then ! and this cuts Y-higgs > highest bin edge
             if(y_higgs.gt.y_bins1(kxx)) then
-               call filld('pth-5GeV'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
-               call filld('pth-2GeV'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
+               call filld('pth-5GeV-'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
+               call filld('pth-2GeV-'//tmp2(1:t2)//'-yH-inf',pt_higgs,dsig)
             endif
          endif
       enddo      	
