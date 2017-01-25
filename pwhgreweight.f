@@ -52,18 +52,21 @@
 
 c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
 
-      call main_pythia8
-      call getyetaptmass(phep(1:4,ihiggs),H_y,eta,H_pt,mass)
 
       if(flg_tunes) then
-         call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+
+         call main_pythia8 ! shower with PYTHIA8
+         call getyetaptmass(phep(1:4,ihiggs),H_y,eta,H_pt,mass) ! calculate y and pT for the higgs AFTER showering
+
          kren_pwg = powheginput("#renscfact")
          kfac_pwg = powheginput("#facscfact")
          kren_mrt = powheginput("#rensc_fact_mrt")
          kfac_mrt = powheginput("#facsc_fact_mrt")
          newweight = newweight * tune_reweight(H_y, H_pt,
-     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt)
+     1        kren_pwg, kfac_pwg, kren_mrt, kfac_mrt) ! calculate the "tunes" reweight based on this Y,pT and the scales
+      
       endif
+
 c DQ end modification
 
 
@@ -1399,7 +1402,7 @@ c$$$
 c Only want to 
       if(ini) then
 
-         call init_hist
+c         call init_hist
 
          call opencountunit(maxev,iun)
          write(*,*) 'iun:',iun
@@ -1455,7 +1458,6 @@ c do is find the final Higgs boson and save its position in the showered event
 ! at i_higgs - 1. However, the higgs momentum is phep(1:4,i_higgs)
 
  123  continue
- 100  format(i4,2x,i5,2x,i5,2x,i4,1x,i4,2x,i4,1x,i4,2x,5(d10.4,1x))
       end
 
 
