@@ -10,6 +10,7 @@
       include 'pwhg_st.h'
       include 'pwhg_pdf.h'
       include 'LesHouches.h'
+      include 'hepevt.h'
       integer maxev
       integer k
       integer gen_seed,gen_n1,gen_n2
@@ -50,6 +51,25 @@
       endif
 
 c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
+      call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
+      
+      write(*,*)
+      write(*,*) '*******************'
+      write(*,*) 'hpt before showering:',H_pt
+      write(*,*) 'hy before showering:',H_y
+      write(*,*) 'h 4-mom before showering:',pup(:,3)
+      
+      call main_pythia8
+      write(*,*) 'pwhgreweight.f'
+      write(*,*) 'h 4-mom after showering:',phep(:,ihiggs)
+      call getyetaptmass(phep(1:4,ihiggs),H_y,eta,H_pt,mass)
+
+      write(*,*)
+      write(*,*) 'hpt after showering:',H_pt
+      write(*,*) 'hy after showering:',H_y
+      write(*,*) '******************'
+      write(*,*)
+
       if(flg_tunes) then
          call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
          kren_pwg = powheginput("#renscfact")

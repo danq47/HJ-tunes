@@ -11,7 +11,8 @@
       external powheginput
 
       character * 20 pwgprefix
-      integer lprefix
+      integer lprefix,ihep,id
+      real *8 y,eta,pt,mass
       common/cpwgprefix/pwgprefix,lprefix
 
       logical analysis_jetveto
@@ -26,6 +27,7 @@
 
       WHCPRG='PYTHIA'
 
+c Only want to 
       if(ini) then
 
          call init_hist
@@ -39,77 +41,107 @@
          
          ini=.false.
 
-      endif
+      endif 
 
-      nevhep=0
-
-      do l=1,maxev
-
-         call lhefreadev(iun)
-
-         nevhep=nevhep+1
-
-         do m=1,1 !ER:
-c Insist to shower this event;
-            call pythia_next(iret)
-
-            if(iret.eq.-1) then
-               nevhep=nevhep-1
-               print*, 'EOF'
-               print*, nevhep
-               print*, l
-               goto 123
-            endif
-           
-            if(iret.ne.1) then
-               write(*,*) ' return code ',iret
-               if(m.eq.1) then
-                  write(*,*) ' Pythia could not shower this event'
-                  call printleshouches
-               endif
-c               write(*,*) ' retry: ',l
-            else
-c               write(*,*) ' done: ',l
-               exit
-            endif
-         enddo
-
-         if(iret.eq.1) then
-            call pythia_to_hepevt(nmxhep,nhep,isthep,idhep,jmohep,
+      call lhefreadev(iun)
+      write(*,*) 'iret:',iret
+      call pythia_next(iret)
+      call pythia_to_hepevt(nmxhep,nhep,isthep,idhep,jmohep,
      1           jdahep,phep,vhep)
-C             if(nevhep.lt.6) then
-C                do j=1,nhep
-C                   write(*,100)j,isthep(j),idhep(j),jmohep(1,j),
-C      1           jmohep(2,j),jdahep(1,j),jdahep(2,j), (phep(k,j),k=1,5)
-C                enddo
+      
+
+
+      do ihep=1,nhep
+         id=abs(idhep(ihep))
+         if(idhep(ihep).eq.25) then 
+         	ihiggs = ihep    				 		
+!         	write(*,*) 'higgs at ',ihiggs - 1 
+         endif										 
+      enddo											 
+
+!       write(*,*) 'final higgs at',ihiggs - 1
+
+! for some reason, idhep is shifted forward one, so the higgs is actually
+! at i_higgs - 1. However, the higgs momentum is phep(1:4,i_higgs)
+
+      write(*,*) 'higgs 4 momentum:',phep(1:4,ihiggs)
+
+      call getyetaptmass(phep(1:4,ihiggs),y,eta,pt,mass)
+      write(*,*) 'hpt after showering:',pt
+      write(*,*) 'hy after showering:',y
+      write(*,*)
+
+C       write(*,*) 'maxev:',maxev
+
+C       nevhep=0
+
+C       do l=1,maxev
+
+C          call lhefreadev(iun)
+
+C          nevhep=nevhep+1
+
+C          do m=1,1 !ER:
+C ! Insist to shower this event;
+C             call pythia_next(iret)
+
+C             if(iret.eq.-1) then
+C                nevhep=nevhep-1
+C                print*, 'EOF'
+C                print*, nevhep
+C                print*, l
+C                goto 123
 C             endif
+           
+C             if(iret.ne.1) then
+C                write(*,*) ' return code ',iret
+C                if(m.eq.1) then
+C                   write(*,*) ' Pythia could not shower this event'
+C                   call printleshouches
+C                endif
+C c               write(*,*) ' retry: ',l
+C             else
+C c               write(*,*) ' done: ',l
+C                exit
+C             endif
+C          enddo
 
-            call pyanal
+C          if(iret.eq.1) then
+C             call pythia_to_hepevt(nmxhep,nhep,isthep,idhep,jmohep,
+C      1           jdahep,phep,vhep)
+C C             if(nevhep.lt.6) then
+C C                do j=1,nhep
+C C                   write(*,100)j,isthep(j),idhep(j),jmohep(1,j),
+C C      1           jmohep(2,j),jdahep(1,j),jdahep(2,j), (phep(k,j),k=1,5)
+C C                enddo
+C C             endif
 
-            if(nevhep.gt.0.and.mod(nevhep,20000).eq.0) then
-               write(*,*)'# of events processed=',nevhep
-               write(*,*)'# of events generated=',nevhep
-               call pyaend
-            endif 
-            if(nevhep.gt.0.and.mod(nevhep,20000).eq.0) then
-               write(*,*)'# of events processed=',nevhep
-               write(*,*)'# of events generated=',nevhep
-            endif 
-         endif
+C             call pyanal
+
+C             if(nevhep.gt.0.and.mod(nevhep,20000).eq.0) then
+C                write(*,*)'# of events processed=',nevhep
+C                write(*,*)'# of events generated=',nevhep
+C                call pyaend
+C             endif 
+C             if(nevhep.gt.0.and.mod(nevhep,20000).eq.0) then
+C                write(*,*)'# of events processed=',nevhep
+C                write(*,*)'# of events generated=',nevhep
+C             endif 
+C          endif
 
 
-      enddo
+C       enddo
 
- 123  continue
+C  123  continue
 
-      write(*,*) 'At the end NEVHEP is ',nevhep
+C       write(*,*) 'At the end NEVHEP is ',nevhep
 
-      call pythia_stat
-!:      write(*,*) 'At the end: #warnings= ',mstu(27),' #errors= ',mstu(23)
-c---user's terminal calculations
+C       call pythia_stat
+C C !:      write(*,*) 'At the end: #warnings= ',mstu(27),' #errors= ',mstu(23)
+C c---user's terminal calculations
 
 
-      call pyaend
+C       call pyaend
 
  100  format(i4,2x,i5,2x,i5,2x,i4,1x,i4,2x,i4,1x,i4,2x,5(d10.4,1x))
       end
