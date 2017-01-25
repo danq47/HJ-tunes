@@ -215,7 +215,7 @@ PWHG=pwhg_main.o pwhg_init.o bbinit.o btilde.o lhefwrite.o		\
         ubprojections.o sigcollsoft.o sigvirtual.o \
         Born_tm.o  bornmatrix_tm.o  init_couplings-topmass.o nloutils.o   \
         ew.o EWgint.o decay-util.o HPL_full.o \
-        pythia8F77_31.o main-PYTHIA8_31-subroutine.o \
+        pythia8F77_31.o \
         $(PDFPACK) $(USER)  $(FPEOBJ) $(MCFMFILES) $(H2JVIRTFILES) $(H2JVFILES) lhefread.o pwhg_io_interface.o rwl_weightlists.o rwl_setup_param_weights.o
 
 #LIBDIRMG=.

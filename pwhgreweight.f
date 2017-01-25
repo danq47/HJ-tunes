@@ -51,24 +51,9 @@
       endif
 
 c DQ - if we are doing a tunes reweight, call the function and multiply the weight by the appropriate reweighting factor
-      call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
-      
-      write(*,*)
-      write(*,*) '*******************'
-      write(*,*) 'hpt before showering:',H_pt
-      write(*,*) 'hy before showering:',H_y
-      write(*,*) 'h 4-mom before showering:',pup(:,3)
-      
-      call main_pythia8
-      write(*,*) 'pwhgreweight.f'
-      write(*,*) 'h 4-mom after showering:',phep(:,ihiggs)
-      call getyetaptmass(phep(1:4,ihiggs),H_y,eta,H_pt,mass)
 
-      write(*,*)
-      write(*,*) 'hpt after showering:',H_pt
-      write(*,*) 'hy after showering:',H_y
-      write(*,*) '******************'
-      write(*,*)
+      call main_pythia8
+      call getyetaptmass(phep(1:4,ihiggs),H_y,eta,H_pt,mass)
 
       if(flg_tunes) then
          call getyetaptmass(pup(:,3),H_y,eta,H_pt,mass)
@@ -1381,4 +1366,96 @@ c$$$
 
       end
       
+
+      subroutine main_pythia8
+      implicit none
+      include 'LesHouches.h'
+      include 'hepevt.h'
+      character * 6 WHCPRG
+      common/cWHCPRG/WHCPRG
+      integer j,k,l,m,iret
+      integer maxev
+      common/mcmaxev/maxev
+      real * 8 powheginput,scalupfac
+      external powheginput
+
+      character * 20 pwgprefix
+      integer lprefix,ihep,id
+      real *8 y,eta,pt,mass
+      common/cpwgprefix/pwgprefix,lprefix
+
+      logical analysis_jetveto
+      common/canalysis_jetveto/analysis_jetveto
+
+      logical ini
+      data    ini/.true./
+      save    ini
+
+      character *20 eventfile
+      integer iun
+
+      WHCPRG='PYTHIA'
+
+c Only want to 
+      if(ini) then
+
+         call init_hist
+
+         call opencountunit(maxev,iun)
+         write(*,*) 'iun:',iun
+
+         call lhefreadhdr(iun)
+
+         call pythia_init
+         
+         ini=.false.
+
+      endif 
+
+      call lhefreadev(iun)
+
+      call pythia_next(iret)
+
+      if(iret.eq.-1) then
+         nevhep=nevhep-1
+         print*, 'EOF'
+         print*, nevhep
+         print*, l
+         goto 123
+      endif
+
+      if(iret.ne.1) then
+         write(*,*) ' return code ',iret
+         if(m.eq.1) then
+            write(*,*) ' Pythia could not shower this event'
+            call printleshouches
+         endif
+c         write(*,*) ' retry: ',l
+      endif
+
+c Shower the event if it is a valid event (iret=1)
+      if(iret.eq.1) then
+         call pythia_to_hepevt(nmxhep,nhep,isthep,idhep,jmohep,
+     1           jdahep,phep,vhep)
+      endif
+
+c Do a basic form of the analysis. We don't need to do a full one, all we need to
+c do is find the final Higgs boson and save its position in the showered event
+      do ihep=1,nhep
+         id=abs(idhep(ihep))
+         if(idhep(ihep).eq.25) then 
+          ihiggs = ihep               
+!           write(*,*) 'higgs at ',ihiggs - 1 
+         endif                     
+      enddo                      
+
+!       write(*,*) 'final higgs at',ihiggs - 1
+
+! for some reason, idhep is shifted forward one, so the higgs is actually
+! at i_higgs - 1. However, the higgs momentum is phep(1:4,i_higgs)
+
+ 123  continue
+ 100  format(i4,2x,i5,2x,i5,2x,i4,1x,i4,2x,i4,1x,i4,2x,5(d10.4,1x))
+      end
+
 
