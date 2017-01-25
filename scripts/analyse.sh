@@ -35,7 +35,7 @@ ls pwgevents*.gz >> events
 
 numFiles=`ls pwgevents*.gz | wc -l` # this is how many files we have to analyse
 numProcessors=$((numFiles/4)) # how many processors we need in total (will split this up into each script doing loops rather than submitting large numbers of scripts)
-numScripts=25 # this is how many scripts we want to runnumScripts=$((numFiles/4)) # this is how many scripts we need (each script runs on 4 processors)
+numScripts=30 # this is how many scripts we want to runnumScripts=$((numFiles/4)) # this is how many scripts we need (each script runs on 4 processors)
 bigLoops=$((numProcessors/numScripts))
 if [ ! $((numProcessors % numScripts)) -eq 0 ] ; then
     bigLoops=$((bigLoops+1)) # add an extra one to pick up files which don't divide evenly

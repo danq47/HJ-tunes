@@ -1,0 +1,170 @@
+###########################################################################
+#!/bin/bash
+###########################################################################
+#
+#PBS -A quill
+#PBS -m abe
+#PBS -M daniel.quill.14@ucl.ac.uk
+#PBS -l nodes=1:ppn=4
+###PBS -l procs=4
+#PBS -q short
+#
+###########################################################################
+#
+nScripts=15
+scriptNumber=1
+nJobs=4
+maxBigLoops=1
+startSeed=$(((nJobs*(scriptNumber-1))+1))
+endSeed=$((startSeed+nJobs-1))
+do_rwgt=1
+###########################################################################
+#
+echo -e "\nJob running parameters:\n"
+echo -e "nJobs = $nJobs"
+echo -e "Starting seed = $startSeed"
+echo -e "Ending seed   = $endSeed  "
+###########################################################################
+# Get the name of the directory we're submitting this script from.
+basedir=$PBS_O_WORKDIR
+# Tell the current worker node to go into it.
+cd $basedir
+if [ ! -e log-files ] ; then
+    mkdir log-files
+fi
+#
+###########################################################################
+###########################################################################
+#                                                                         #
+#                   Define helper function for later                      #
+#                                                                         #
+###########################################################################
+###########################################################################
+# Define auxiliary helper function
+function char {
+        case $1 in
+            [1-9])                      echo 000$1 ;;
+            [1-9][0-9])                 echo 00$1  ;;
+            [1-9][0-9][0-9])            echo 0$1   ;;
+                [1-9][0-9][0-9][0-9])   echo $1    ;;
+        esac
+}
+
+###########################################################################
+#
+# start the big loop
+# 
+###########################################################################
+#
+
+for BigLoop in `seq 1 $maxBigLoops` ; do
+
+    if [ $scriptNumber -eq 1 ] ; then
+        > Timings/Timings-rwgt.txt
+        (echo -n ' ' ) >> Timings/Timings-rwgt.txt    
+        (echo -n Starting rwgt ' ' ; date ) >> Timings/Timings-rwgt.txt
+    fi
+
+    if [ ! -e pwhg_main ] ; then
+        echo ""
+        echo "Cannot find pwhg_main executable: Quitting."
+        echo ""
+        exit
+    fi
+
+    if [ ! -e powheg.input-save ] ; then
+       echo
+       echo "Cannot find powheg.input-save file: Quitting."
+       echo
+       exit
+    fi
+
+    if [ ! -e pwgseeds.dat ] ; then
+       echo
+       echo "Cannot find pwgseeds.dat file: Quitting."
+       echo
+       exit
+    fi
+
+    if [ -e /tmp/kh-$scriptNumber-`basename $basedir`-rwgt ] ; then
+       rm -rf /tmp/kh-$scriptNumber-`basename $basedir`-rwgt/
+    fi  
+
+    mkdir /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+    cp powheg.input-save /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+    cp pwgseeds.dat /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+    cp pwhg_main /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+    cd /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+    for i in `seq $startSeed $endSeed` ; do
+        ch=`char $i`
+        mv $basedir/pwgevents-$ch.lhe.tar.gz /tmp/kh-$scriptNumber-`basename $basedir`-rwgt
+        tar -xvzf pwgevents-$ch.lhe.tar.gz
+    done
+
+    for iscales in {1..7}
+    do
+        case $iscales in
+            1) facscfact=1   ; renscfact=1   ;;
+            2) facscfact=0.5 ; renscfact=0.5 ;;
+            3) facscfact=0.5 ; renscfact=1   ;;
+            4) facscfact=1   ; renscfact=0.5 ;;
+            5) facscfact=2   ; renscfact=1   ;;
+            6) facscfact=1   ; renscfact=2   ;;
+            7) facscfact=2   ; renscfact=2   ;;
+        esac
+
+        cat  powheg.input-save | sed "s/parallelstage.*/parallelstage 4/ ; s/storeinfo_rwgt/compute_rwgt/ ; s/facscfact .*/facscfact $facscfact/ ; s/renscfact .*/renscfact $renscfact/ " > powheg.input
+        
+        sed -i "s/lhrwgt_id .*/lhrwgt_id \'muR_pwg = $renscfact, muF_pwg = $facscfact\'/g" powheg.input
+        sed -i "s/lhrwgt_dscr .*/lhrwgt_dscr \'scale variations with KRp=$renscfact,KFp=$facscfact\'/g" powheg.input
+        
+        for i in `seq $startSeed $endSeed`
+        do
+            ch=`char $i`
+
+            ./pwhg_main <<EOF > run-rwgt-$i.log 2>&1 &
+$i
+pwgevents-$ch.lhe
+EOF
+
+        done
+
+        wait
+
+        for i in `seq $startSeed $endSeed`
+        do
+            ch=`char $i`
+            \mv -f pwgevents-rwgt-$ch.lhe pwgevents-$ch.lhe 
+        
+        done
+
+    done
+
+# TAR up events now and send them back to the base directory
+
+    for i in *.lhe
+    do 
+        filesToCopy=$filesToCopy" "$i.tar.gz
+        tar -czf $i.tar.gz $i &
+    done
+    wait
+    mv $filesToCopy $basedir/
+    rm $filesToCopy
+    rm -rf /tmp/kh-$scriptNumber-`basename $basedir`-rwgt/*
+    cd $basedir/
+    rm -rf /tmp/kh-$scriptNumber-`basename $basedir`-rwgt/
+
+###########################################################################
+###########################################################################
+#                                                                         #
+#   End of BigLoop over generation of events, reweighting and analysis    #
+#                                                                         #
+###########################################################################
+###########################################################################
+# Then we have to take care to shift the starting and ending seeds up so
+# they don't overlap the ones we already ran with, to avoid generating
+# identical events over again.
+    startSeed=$((startSeed+(nJobs*nScripts)))
+    endSeed=$((startSeed+nJobs-1))
+#
+done

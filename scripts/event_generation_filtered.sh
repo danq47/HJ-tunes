@@ -7,9 +7,9 @@ do_LHEF=1 # Can't do analysis on it's own yet, will add this at a later date
 do_P8=1   # For now we can only do P8 and LHEF if we also do st4
 
 startingSeed=1
-numScripts=20
-bigLoops=10
-numst2=100
+numScripts=30
+bigLoops=8
+numst2=90
 
 # Stage 1 - grids
 if [ $do_st1 -eq 1 ] ; then
