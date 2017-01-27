@@ -15,3 +15,8 @@ NLO_plots/
 plots/
 test_plots/
 tunes/
+10m-events*/
+test_plot/
+save-tunes-analysis2.f
+pwhg_analysis-tunes-new.f
+top_files_DQ/

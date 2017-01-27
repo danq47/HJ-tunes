@@ -197,10 +197,10 @@ do
 			7) facsc_fact_mrt=2.0 ; rensc_fact_mrt=2.0 ;;
 		esac
 
-		sed -i "s/facsc_fact_mrt .*/facsc_fact_mrt $facsc_fact_mrt/g" powheg.input
-		sed -i "s/rensc_fact_mrt .*/rensc_fact_mrt $rensc_fact_mrt/g" powheg.input
-		sed -i "s/lhrwgt_id .*/lhrwgt_id \'muR_pwg = $renscfact, muF_pwg = $facscfact, muR_mrt = $rensc_fact_mrt, muF_mrt = $facsc_fact_mrt\'/g" powheg.input
-        	sed -i "s/lhrwgt_dscr .*/lhrwgt_dscr \'tunes reweighted with KRp=$muRp,KFp=$muFp,KRr=$muRr,KFr=$muFr\'/g" powheg.input
+		sed -i "s/facsc_fact_mrt.*/facsc_fact_mrt $facsc_fact_mrt/g" powheg.input
+		sed -i "s/rensc_fact_mrt.*/rensc_fact_mrt $rensc_fact_mrt/g" powheg.input
+		sed -i "s/lhrwgt_id.*/lhrwgt_id \'muR_pwg = $renscfact, muF_pwg = $facscfact, muR_mrt = $rensc_fact_mrt, muF_mrt = $facsc_fact_mrt\'/g" powheg.input
+        sed -i "s/lhrwgt_dscr.*/lhrwgt_dscr \'tunes reweighted with KRp=$renscfact,KFp=$facscfact,KRr=$rensc_fact_mrt,KFr=$facsc_fact_mrt\'/g" powheg.input
     	
 		for i in `seq $startSeed $endSeed`
     		do
@@ -208,6 +208,7 @@ do
 
         		./pwhg_main <<EOF > run-rwgt-$i.log 2>&1 &
 $i
+pwgevents-$ch.lhe
 pwgevents-$ch.lhe
 EOF
             
